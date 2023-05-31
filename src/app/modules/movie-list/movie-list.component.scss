@@ -1,0 +1,32 @@
+.rowposter {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.rowimg {
+  max-height: 100px;
+  object-fit: contain;
+  width: 100%;
+  box-sizing: content-box;
+  transition: transform 450ms;
+  margin-right: 12px;
+}
+
+.rowimg:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.largeposter {
+  max-height: 300px;
+}
+
+.rowposter::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  border-radius: 5px;
+}

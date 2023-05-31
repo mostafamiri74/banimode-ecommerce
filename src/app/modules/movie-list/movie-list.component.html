@@ -1,0 +1,8 @@
+<div class="row mt-5">
+  <h5 class="text-white">All Movies</h5>
+  <div class="rowposter mt-3 p-2">
+    <ng-container *ngFor="let movie of allMovie">
+      <app-movie [movie]="movie" (movieClick)="movieClick($event)"></app-movie>
+    </ng-container>
+  </div>
+</div>

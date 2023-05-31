@@ -1,0 +1,9 @@
+<img
+  [src]="movie.poster"
+  (click)="clickOnMovie()"
+  class="rowimg largeposter all-movie"
+  alt="..."
+  loading="lazy"
+/>
+
+<span [textContent]="movie.year | filsize : 'GB'"></span>

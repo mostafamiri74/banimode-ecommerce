@@ -1,0 +1,68 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+  <!-- Name input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="registerName"
+      class="form-control"
+      formControlName="name"
+    />
+    <label class="form-label" for="registerName">Name</label>
+  </div>
+
+  <!-- Username input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="registerUsername"
+      class="form-control"
+      formControlName="userName"
+    />
+    <label class="form-label" for="registerUsername">Username</label>
+    <p *ngIf="signupForm.controls['userName'].hasError('required')">خطا</p>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="email"
+      id="registerEmail"
+      class="form-control"
+      formControlName="email"
+    />
+    <label class="form-label" for="registerEmail">Email</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input
+      type="password"
+      id="registerPassword"
+      class="form-control"
+      formControlName="password"
+    />
+    <label class="form-label" for="registerPassword">Password</label>
+  </div>
+
+  <!-- Password Confirm input -->
+  <div class="form-outline mb-4">
+    <input
+      type="password"
+      id="registerRepeatPassword"
+      class="form-control"
+      formControlName="passwordConfirm"
+    />
+    <label class="form-label" for="registerRepeatPassword"
+      >Password Confirm</label
+    >
+  </div>
+
+  <!-- Submit button -->
+  <button
+    type="submit"
+    [disabled]="signupForm.invalid"
+    class="btn btn-primary btn-block mb-3"
+  >
+    Sign in
+  </button>
+</form>
