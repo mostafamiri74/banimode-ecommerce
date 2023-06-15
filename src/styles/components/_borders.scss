@@ -1,0 +1,35 @@
+.border-x-small { border-radius: $borderXSmall }
+.border-small   { border-radius: $borderSmall  }
+.border-medium  { border-radius: $borderMedium }
+.border-large   { border-radius: $borderLarge }
+.border-x-large   { border-radius: $borderXLarge  !important}
+
+.border-circle  { border-radius: $borderCircle !important}
+
+
+.border { border: 1px solid $line1 }
+.border-primary { border: 1px solid $primary !important}
+.border-bottom { border-bottom: 1px solid $line1 }
+.border-left { border-left: 1px solid $line1 }
+
+.border-0 { border: 0 !important }
+
+.border-bottom-animate {
+  &:after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    bottom: -32%;
+    left: 50%;
+    position: absolute;
+    background: rgb(110, 103, 103);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  &:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}

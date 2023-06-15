@@ -1,0 +1,72 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .table__th {
+        width: 200px;
+        padding: map-get($gaps, "12" ) map-get($gaps, "8" );
+        color: #808C99;
+        font-weight: 500;
+        font-size: 14px;
+        border:0;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: default;
+        position: sticky;
+        top: 44px;
+        z-index: 2;
+    }
+
+    .table-row__td {
+        padding: map-get($gaps, "12" ) map-get($gaps, "8" );
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        position:relative;
+        border:0;
+        cursor: default;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .table__thead {
+      display: none;
+    }
+
+    .table-row {
+        display: inline-block;
+        border: 0;
+        width: calc(33.3% - 13px);
+        margin-right: map-get($gaps, "12" );
+        margin-bottom: map-get($gaps, "12" );
+    }
+
+    .table-row__td {
+        display: block;
+        text-align: center;
+        padding: map-get($gaps, "8" );
+    }
+
+    .table-row__td:before{
+        content:attr(data-column);
+        color: #9eabb4;
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: uppercase;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .table-row {
+      width: calc(50% - 13px);
+    }
+}
+
+@media screen and (max-width: 480px){
+    .table-row {
+      width: 100%;
+    }
+}

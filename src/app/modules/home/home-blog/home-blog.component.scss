@@ -1,0 +1,85 @@
+@import "/src/styles/abstracts/mixins";
+@import "/src/styles/abstracts/colors";
+
+.main-page {
+  &-blog {
+    h4 {
+      margin-bottom: 0;
+    }
+
+    &__slider {
+      .swiper-blog {
+        .swiper-slide {
+          display: block;
+          background: transparent;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #707070;
+
+          &:after {
+            font-size: 23px;
+          }
+        }
+
+        .swiper-button-next {
+          left: -6px;
+        }
+
+        .swiper-button-prev {
+          right: -6px;
+        }
+      }
+    }
+
+    .main-page-blog-slider__link {
+      figure {
+        img {
+          background-color: #fff;
+          border-radius: 0px;
+        }
+
+        figcaption {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          font-size: 13px;
+          text-align: right;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          -webkit-transition: 0.2s all;
+          -o-transition: 0.2s all;
+          transition: 0.2s all;
+          margin-top: 30px;
+        }
+      }
+
+      &:hover {
+        figcaption {
+          color: $green-color;
+        }
+      }
+    }
+
+    .btn-more {
+      @include button(
+        $color: $green-color,
+        $border-color: #ccc,
+        $background-color: transparent
+      );
+      font-size: 19px;
+      font-weight: 500;
+      width: 20%;
+      padding: 13px;
+
+      &:hover {
+        border-color: $green-color;
+        border-width: 1px;
+      }
+    }
+  }
+}

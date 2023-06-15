@@ -1,0 +1,67 @@
+//@mixin theme( $pallet, $gray) { }
+
+.btn {
+    &-primary {
+        color: $white !important;
+        background-color: $primary !important;
+    }
+
+    &-accepted {
+        color: $white !important;
+        background-color: $successfully !important;
+    }
+
+    &-reject {
+        color: $white !important;
+        background-color: $reject !important;
+    }
+
+    &-warning {
+        color: $warning !important;
+        background-color: rgba($warning, 0.2) !important;
+    }
+
+    &-danger {
+        color: $danger !important;
+        background-color: rgba($danger, 0.3) !important;
+    }
+
+    &-successfully {
+        color: $successfully !important;
+        background-color: rgba($successfully, 0.2) !important;
+    }
+
+
+    &-default {
+        color: $white !important;
+        background-color: rgba($default, 0.7) !important;
+    }
+}
+
+.btn-shine {
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s infinite linear;
+    background-clip: text !important;
+    transform: translate(-50%,-50%);
+    -webkit-text-size-adjust: none;
+    animation-fill-mode: forwards;
+    background-position: 0;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 0
+    }
+    60% {
+      background-position: 180px
+    }
+    100% {
+      background-position: 180px
+    }
+  }
