@@ -1,0 +1,61 @@
+@import "/src/styles/abstracts/mixins";
+@import "/src/styles/abstracts/colors";
+
+.main-page {
+  &-newsletter {
+    > div.container {
+      background-color: #f9f9f9;
+      padding: 50px 0;
+      background-color: #f8f8f8;
+      background-image: url("/assets/img/newsletter.svg");
+      background-repeat: no-repeat;
+      background-position: left top;
+      padding-top: 75px;
+      direction: rtl;
+      margin-bottom: 75px;
+      height: 270px;
+    }
+    &__form {
+      position: relative;
+      top: 38px;
+      margin: 15px auto 0;
+      width: 650px;
+      height: 75px;
+      background-color: #fff;
+      border-radius: 38px;
+      padding: 0 20px;
+      padding-top: 12px;
+      input {
+        font-size: 14px;
+        font-weight: 500;
+        background-color: rgba(238, 238, 238, 0.9333333333);
+        border: none;
+        color: #b3b3b3;
+        line-height: 52px;
+        width: 450px;
+        box-shadow: none;
+        border-radius: 40px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      button {
+        width: 140px;
+        line-height: 52px;
+        background-color: #00bf6f;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        box-shadow: none;
+        text-align: left;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        float: left;
+        padding: 0 20px;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.2s all;
+      }
+    }
+  }
+}

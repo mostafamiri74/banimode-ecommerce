@@ -1,0 +1,62 @@
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 -5%;
+    overflow: hidden;
+
+    &:hover {
+        .dot-elastic {
+            background-color: $primary !important;
+            // animation: dotElastic 1s infinite linear;
+            
+            &::after { 
+                background-color: $primary !important;
+                // animation: dotElasticAfter 1s infinite linear; 
+            }
+            
+            &::before {
+                background-color: $primary !important;
+                // animation: dotElasticBefore 1s infinite linear; 
+            }
+        }
+    }
+}
+
+.dot-elastic {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: $accepted;
+    color: $accepted;
+    transition: background-color 0.3s ease-in-out;
+
+    &::before, &::after {
+        transition: background-color 0.3s ease-in-out;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+    }
+
+    &::before {
+        left: -10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: $accepted;
+        color: $accepted;
+    }
+
+    &::after {
+        left: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: $accepted;
+        color: $accepted;
+    }
+    
+}

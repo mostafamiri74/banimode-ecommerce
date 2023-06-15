@@ -1,0 +1,9 @@
+.modal-header {
+    top: 0;left: 0;right: 0;
+}
+
+.progress-indeterminate {
+    position: absolute !important;
+    top: 0;right: 0;left: 0;
+    z-index: $z-index-3;
+}

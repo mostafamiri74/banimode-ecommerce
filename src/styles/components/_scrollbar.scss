@@ -1,0 +1,13 @@
+#hu-scrollbar::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: map-get($gaps, "12" );
+}
+
+#hu-scrollbar::-webkit-scrollbar {
+	width: map-get($gaps, "8" );
+}
+
+#hu-scrollbar::-webkit-scrollbar-thumb {
+	border-radius: map-get($gaps, "12" );
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}

@@ -1,0 +1,48 @@
+.page {
+  &-features {
+    a {
+      background-image: url("/assets/img/features/featurebg.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 85%;
+      text-align: center;
+      position: relative;
+      padding-bottom: 40px;
+      display: block;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.95;
+        transition: 0.3s all;
+        position: absolute;
+        top: 0;
+        display: block;
+        z-index: 1;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 0.84;
+        }
+      }
+
+      figure {
+        figcaption {
+          font-size: 20px;
+          margin-top: 15px;
+          font-weight: 700;
+          color: #666;
+        }
+      }
+    }
+
+    &__info {
+      color: #666;
+      font-size: 15px;
+      padding: 0px 7px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.m-0 { margin : 0 !important }
+.p-0 { padding: 0 !important }
+
+@each $gapName, $gapValue in $gaps {
+  .mat-typography .ma-#{$gapName},
+  .ma-#{$gapName} {
+    margin: $gapValue;
+  }
+
+  .mat-typography .mb-#{$gapName},
+  .mb-#{$gapName} {
+    margin-bottom: $gapValue !important;
+  }
+
+  .mat-typography .mt-#{$gapName},
+  .mt-#{$gapName} {
+    margin-top: $gapValue !important;
+  }
+
+  .mat-typography .mr-#{$gapName},
+  .mr-#{$gapName} {
+    margin-right: $gapValue !important;
+  }
+
+  .mat-typography .ml-#{$gapName},
+  .ml-#{$gapName} {
+    margin-left: $gapValue !important;
+  }
+
+  .mat-typography .mx-#{$gapName},
+  .mx-#{$gapName} {
+    margin-right: $gapValue !important;
+    margin-left: $gapValue !important;
+  }
+
+  .mat-typography .my-#{$gapName},
+  .my-#{$gapName} {
+    margin-top: $gapValue !important;
+    margin-bottom: $gapValue !important;
+  }
+}
+
+@each $gapName, $gapValue in $gaps {
+  .mat-typography .pa-#{$gapName},
+  .pa-#{$gapName} {
+    padding: $gapValue !important;
+  }
+
+  .mat-typography .pb-#{$gapName},
+  .pb-#{$gapName} {
+    padding-bottom: $gapValue !important;
+  }
+
+  .mat-typography .pt-#{$gapName},
+  .pt-#{$gapName} {
+    padding-top: $gapValue !important;
+  }
+
+  .mat-typography .pr-#{$gapName},
+  .pr-#{$gapName} {
+    padding-right: $gapValue;
+  }
+
+  .mat-typography .pl-#{$gapName},
+  .pl-#{$gapName} {
+    padding-left: $gapValue !important;
+  }
+
+  .mat-typography .px-#{$gapName},
+  .px-#{$gapName} {
+    padding-right: $gapValue;
+    padding-left: $gapValue;
+  }
+
+  .mat-typography .py-#{$gapName},
+  .py-#{$gapName} {
+    padding-top: $gapValue;
+    padding-bottom: $gapValue;
+  }
+}

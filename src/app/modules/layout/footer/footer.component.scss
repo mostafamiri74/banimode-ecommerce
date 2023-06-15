@@ -1,0 +1,87 @@
+@import "/src/styles/abstracts/colors";
+
+footer {
+  .footer {
+    &-title {
+      color: gray;
+      padding-bottom: 32px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &-link {
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.2s all;
+      display: inline-block;
+      width: max-content;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid $green-color;
+        opacity: 0;
+        transition: 0.3s opacity, transform 0.35s;
+        transform: scale(0, 1);
+      }
+
+      &:hover {
+        color: $green-color;
+      }
+
+      &:hover:after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &-contact-info {
+      line-height: 46px;
+      padding-left: 20px;
+      float: right;
+      font-size: 16px;
+
+      a {
+        direction: ltr;
+      }
+    }
+
+    &-app-download {
+      display: block;
+      width: 70%;
+      color: #00bf6f;
+      border: 1px solid #00bf6f;
+      border-radius: 23px;
+      margin: 33px auto;
+      text-align: center;
+      line-height: 35px;
+      font-size: 14px;
+      transition: 0.2s all;
+    }
+
+    &-copyright {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    &-social-icon li a {
+      display: block;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      line-height: 43px;
+      text-align: center;
+      margin-right: 12px;
+
+      &:hover {
+        border: 1px solid $green-color;
+      }
+    }
+  }
+}
