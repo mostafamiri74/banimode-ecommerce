@@ -20,6 +20,13 @@ const routes: Routes = [
           import('./modules/home/home.module').then((m) => m.HomeModule),
       },
       {
+        path: 'product',
+        loadChildren: () =>
+          import('./modules/product/product.module').then(
+            (m) => m.ProductModule
+          ),
+      },
+      {
         path: 'about-us',
         component: AboutUsComponent,
       },
