@@ -7,10 +7,11 @@ ol {
 
 .paginator-container {
   margin: 2rem 0;
+  direction: ltr;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
 
   li {
     text-align: center;
@@ -22,6 +23,11 @@ ol {
     justify-content: center;
     font-size: 15px;
     font-weight: 500;
+    transition: all 0.2s linear;
+
+    &:hover {
+      color: rgb(0, 191, 111);
+    }
 
     &.paginator-number {
       width: 36px;

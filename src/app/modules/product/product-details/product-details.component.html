@@ -184,12 +184,12 @@
       <li class="nav-item" role="presentation">
         <button
           class="nav-link"
-          id="profile-tab"
+          id="product-detail-tab"
           data-bs-toggle="tab"
-          data-bs-target="#profile-tab-pane"
+          data-bs-target="#product-detail-tab-pane"
           type="button"
           role="tab"
-          aria-controls="profile-tab-pane"
+          aria-controls="product-detail-tab-pane"
           aria-selected="false"
         >
           مشخصات محصول
@@ -200,10 +200,10 @@
           class="nav-link"
           id="contact-tab"
           data-bs-toggle="tab"
-          data-bs-target="#contact-tab-pane"
+          data-bs-target="#product-comment"
           type="button"
           role="tab"
-          aria-controls="contact-tab-pane"
+          aria-controls="product-comment"
           aria-selected="false"
         >
           نظرات کاربران
@@ -229,21 +229,131 @@
       </div>
       <div
         class="tab-pane fade"
-        id="profile-tab-pane"
+        id="product-detail-tab-pane"
         role="tabpanel"
-        aria-labelledby="profile-tab"
+        aria-labelledby="product-detail-tab"
         tabindex="0"
       >
-        ...
+        <ul class="specifications">
+          <li>
+            <span>کد محصول</span>
+            <span id="product-refrence">31573902</span>
+            <span id="product-refrence-size"></span>
+          </li>
+          <li>
+            <span>یقه</span>
+            <span>گرد</span>
+          </li>
+          <li>
+            <span>آستین</span>
+            <span>کوتاه</span>
+          </li>
+          <li>
+            <span>طرح</span>
+            <span>ساده</span>
+          </li>
+          <li>
+            <span>قواره</span>
+            <span>Fit (متناسب)</span>
+          </li>
+          <li>
+            <span>نوع شستشو</span>
+            <span>ماشینی</span>
+          </li>
+          <li>
+            <span>نحوه شستشو</span>
+            <span>به صورت مجزا یا با رنگ‌های مشابه</span>
+          </li>
+          <li>
+            <span>ماکزیمم دمای شستشو</span>
+            <span>30 درجه سانتی‌گراد</span>
+          </li>
+          <li>
+            <span>ماکزیمم دمای اتوکشی</span>
+            <span>110 درجه سانتی‌گراد</span>
+          </li>
+          <li>
+            <span>مناسب برای </span>
+            <span>آقایان</span>
+          </li>
+          <li>
+            <span>مناسب برای فصول</span>
+            <span>گرم</span>
+          </li>
+          <li>
+            <span>برند</span>
+            <span>JootiJeans</span>
+          </li>
+        </ul>
       </div>
       <div
         class="tab-pane fade"
-        id="contact-tab-pane"
+        id="product-comment"
         role="tabpanel"
         aria-labelledby="contact-tab"
         tabindex="0"
       >
-        ...
+        <div class="comments-container">
+          <div class="comment">
+            <div class="details">
+              <p class="description my-comment">
+                <b>اولین نفر باشید که نظر می‌دهید.</b>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-comment">
+          <div class="add-comment-box col-7 mt-5">
+            <p class="title">ثبت نظر</p>
+            <p class="description">
+              لطفا قبل از نوشتن نظر خود در مورد این محصول، قوانین و ضوابط را
+              مطالعه کنید.
+            </p>
+
+            <input
+              type="text"
+              id="comment_title"
+              placeholder="عنوان نظر"
+              class="error"
+            />
+            <span class="comment-title_error d-none"></span>
+            <textarea
+              id="comment_content"
+              cols="30"
+              rows="10"
+              placeholder="نظر خود را بنویسید …"
+              class="error"
+            ></textarea>
+            <span class="comment-content_error d-none"></span>
+            <!-- start feedback -->
+            <div id="perfume-comment" class="perfume-comment"></div>
+            <!-- end feedback -->
+            <div class="btn-box">
+              <label class="like-radio like">
+                <input
+                  type="radio"
+                  name="comment_rate"
+                  class="comment_rate"
+                  value="1"
+                />
+                <span class="like-shape"></span>
+                <p>خرید این محصول را پیشنهاد می کنم.</p>
+              </label>
+              <label class="like-radio dislike">
+                <input
+                  type="radio"
+                  name="comment_rate"
+                  class="comment_rate"
+                  value="2"
+                />
+                <span class="like-shape dis"></span>
+                <p>خرید این محصول را پیشنهاد نمی کنم.</p>
+              </label>
+              <button id="addComment" onclick="">ثبت نظر</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

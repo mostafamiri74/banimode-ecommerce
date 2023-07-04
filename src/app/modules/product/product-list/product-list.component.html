@@ -4,7 +4,65 @@
       <h3>ساعت</h3>
     </div>
     <div class="row">
-      <div class="col-md-3 col-12"></div>
+      <div class="col-md-3 col-12 product-filter-sidebar">
+        <div class="search-box position-relative">
+          <input
+            type="search"
+            name=""
+            placeholder="جستجو در محصولات زیر ..."
+            id="search-input"
+            data-bs-toggle="modal"
+            data-bs-target="#SearchBoxModal"
+          />
+          <button class="" id="search-btn">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        </div>
+
+        <div
+          class="d-flex flex-row justify-content-between align-content-center"
+        >
+          <h6 class="m-0">فیلتر های اعمال شده :</h6>
+          <button class="remove-filters">حذف فیلترها</button>
+        </div>
+
+        <!-- <div>
+          <h6>دسته بندی</h6>
+          <form [formGroup]="filterForm">
+            <div *ngFor="let category of categories; let i = index">
+              <label [for]="'category-' + category">{{ category }}</label>
+              <input
+                type="checkbox"
+                [id]="'category-' + category"
+                formArrayName="category"
+                [formControlName]="i"
+                [value]="category"
+              />
+            </div>
+
+            <div *ngFor="let brand of brands">
+              <label [for]="'brand-' + brand">{{ brand }}</label>
+              <input
+                type="checkbox"
+                [id]="'brand-' + brand"
+                [formArrayName]="brand"
+                [value]="brand"
+              />
+            </div>
+
+            <div>
+              <label for="price">Price</label>
+              <input
+                type="range"
+                id="price"
+                formControlName="price"
+                min="0"
+                max="100"
+              />
+            </div>
+          </form>
+        </div> -->
+      </div>
       <div class="col-md-9 col-12">
         <app-pagination
           [index]="page"

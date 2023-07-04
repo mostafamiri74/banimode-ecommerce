@@ -2,6 +2,26 @@
 @import "/src/styles/abstracts/mixins";
 
 .product-list {
+  .search-box {
+    #search-input {
+      @include search-input();
+      border-radius: 9px;
+    }
+
+    #search-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      .fa-search {
+        font-size: 27px;
+      }
+    }
+  }
+
   &-item {
     &:hover {
       .product-list__image-hover-show {
@@ -158,6 +178,28 @@
     &:hover {
       border-color: $green-color;
       border-width: 1px;
+    }
+  }
+}
+
+.product-filter-sidebar {
+  & > div:not(:first-child) {
+    padding: 20spx 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .remove-filters {
+    @include button(
+      $color: $orange-color,
+      $background-color: white,
+      $border-color: none,
+      $border-width: 0
+    );
+
+    &:hover {
+      border-width: 0;
+      transition: all 0.3s;
+      color: $green-color;
     }
   }
 }

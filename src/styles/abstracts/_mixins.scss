@@ -82,3 +82,11 @@
     }
   }
 }
+
+@mixin hover-green() {
+  transition: all 0.5s linears;
+
+  &:hover {
+    color: $green-color;
+  }
+}
