@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormArray,
@@ -6,6 +7,8 @@ import {
   FormControl,
   AbstractControl,
 } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,17 +19,33 @@ export class ProductListComponent implements OnInit {
   filterForm!: FormGroup;
   categories = ['C', 'Category2'];
   brands = ['Brand1', 'Brand2'];
+  public queryParams = new HttpParams();
 
   page = 1;
 
-  constructor(private formBuilder: FormBuilder) {}
+  productList$ = new Observable<any>();
 
-  ngOnInit() {
-    this.filterForm = this.formBuilder.group({
-      category: this.formBuilder.array(this.createCheckboxes(this.categories)),
-    });
+  constructor(
+    private productService: ProductService,
+    private formBuilder: FormBuilder
+  ) {}
 
-    this.onFormChanges();
+  ngOnInit(): void {
+    // this.filterForm = this.formBuilder.group({
+    //   category: this.formBuilder.array(this.createCheckboxes(this.categories)),
+    // });
+    this.queryParams = this.queryParams.set('page', this.page);
+
+    // this.onFormChanges();
+    this.getProductlist();
+  }
+
+  private getProductlist() {
+    this.productService
+      .getProductList(this.queryParams)
+      .subscribe((res: any[]) => {
+        this.productList$ = of(res);
+      });
   }
 
   get category(): FormArray {
@@ -57,5 +76,7 @@ export class ProductListComponent implements OnInit {
 
   pageEvent(pageNumber: any): void {
     this.page = pageNumber;
+    this.queryParams = this.queryParams.set('page', this.page);
+    this.getProductlist();
   }
 }

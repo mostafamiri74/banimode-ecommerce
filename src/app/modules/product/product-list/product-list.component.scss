@@ -162,6 +162,10 @@
       font-weight: 700;
       margin: 0 4px;
       padding: 0 10px;
+      color: #8c8c8c;
+      &:last-child {
+        color: $orange-color;
+      }
     }
   }
 

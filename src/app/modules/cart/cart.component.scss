@@ -1,0 +1,27 @@
+.cart-product-header {
+  display: flex;
+  direction: rtl;
+  border-radius: 12px;
+  background-color: #fafafa;
+  line-height: 60px;
+}
+.cart-product-header .item {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #656565;
+}
+.cart-product-header .item.name {
+  flex-basis: calc(34% + 187px);
+  text-align: right;
+  padding-right: 41px;
+}
+.cart-product-header .item.price {
+  flex-basis: 22%;
+}
+.cart-product-header .item.quantity {
+  flex-basis: 22%;
+}
+.cart-product-header .item.price {
+  flex-basis: 22%;
+}

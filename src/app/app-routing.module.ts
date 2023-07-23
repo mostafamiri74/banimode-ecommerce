@@ -27,6 +27,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'cart',
+        loadChildren: () =>
+          import('./modules/cart/cart.module').then((m) => m.CartModule),
+      },
+      {
         path: 'about-us',
         component: AboutUsComponent,
       },

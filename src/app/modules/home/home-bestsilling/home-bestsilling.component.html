@@ -15,12 +15,12 @@
         [autoHeight]="true"
         [allowTouchMove]="true"
       >
-        <ng-template swiperSlide>
+        <ng-template swiperSlide *ngFor="let product of productList$ | async">
           <div class="swiper-slide">
             <a href="" class="main-page-bestsilling-slider__image">
               <figure class="mb-0">
                 <img
-                  src="/assets/img/bestsilling/1-1.jpg"
+                  [src]="product.images.large_default[0]"
                   alt="amazin product"
                   width="275"
                   height="330"
@@ -28,271 +28,35 @@
                   class="object-fit-cover"
                 />
                 <img
-                  src="/assets/img/bestsilling/1-2.jpg"
+                  [src]="product.images.large_default[1]"
                   alt="amazin product"
                   width="275"
                   height="330"
                   title="amazin product"
                   class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
                 />
-                <figcaption class="semicircular-badge">۵۵٪</figcaption>
+                <figcaption class="semicircular-badge">
+                  {{ product.product_specific_price.discount_percent + "%" }}
+                </figcaption>
               </figure>
               <div class="main-page-bestsilling-slider__quantity-green">
-                <span>۸۵٪ ویژه کالای دوم</span>
+                <span>{{ product.promotion_label + "%" }} ویژه کالای دوم</span>
               </div>
             </a>
             <a href="" class="d-flex justify-content-between mt-3">
               <h4 class="main-page-bestsilling-slider__brands">JootiJeans</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
+              <del class="main-page-bestsilling-slider__lastprice">
+                {{ product.product_price | number }} تومان
+              </del>
             </a>
             <a href="" class="d-flex justify-content-between my-3">
               <h4 class="main-page-bestsilling-slider__name">
                 تیشرت طرح دار مردانه جامه
               </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
-            </a>
-            <div
-              class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"
-            >
-              <a href="#"> SM </a>
-              <a href="#"> M </a>
-              <a href="#"> L </a>
-              <a href="#"> 1 + </a>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template swiperSlide>
-          <div class="swiper-slide">
-            <a href="" class="main-page-bestsilling-slider__image">
-              <figure class="mb-0">
-                <img
-                  src="/assets/img/bestsilling/2-1.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover"
-                />
-                <img
-                  src="/assets/img/bestsilling/2-2.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
-                />
-                <figcaption class="semicircular-badge">۵۵٪</figcaption>
-              </figure>
-              <div class="main-page-bestsilling-slider__quantity-green">
-                <span>۸۵٪ ویژه کالای دوم</span>
-              </div>
-            </a>
-            <a href="" class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">Baleno</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
-            </a>
-            <a href="" class="d-flex justify-content-between my-3">
-              <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
-              </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
-            </a>
-            <div
-              class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"
-            >
-              <a href="#"> SM </a>
-              <a href="#"> M </a>
-              <a href="#"> L </a>
-              <a href="#"> 1 + </a>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template swiperSlide>
-          <div class="swiper-slide">
-            <a href="" class="main-page-bestsilling-slider__image">
-              <figure class="mb-0">
-                <img
-                  src="/assets/img/bestsilling/3-1.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover"
-                />
-                <img
-                  src="/assets/img/bestsilling/3-2.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
-                />
-              </figure>
-              <div class="main-page-bestsilling-slider__quantity-green">
-                <span>۸۵٪ ویژه کالای دوم</span>
-              </div>
-            </a>
-            <a href="" class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">JootiJeans</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
-            </a>
-            <a href="" class="d-flex justify-content-between my-3">
-              <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
-              </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
-            </a>
-            <div
-              class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"
-            >
-              <a href="#"> SM </a>
-              <a href="#"> M </a>
-              <a href="#"> L </a>
-              <a href="#"> 1 + </a>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template swiperSlide>
-          <div class="swiper-slide">
-            <a href="" class="main-page-bestsilling-slider__image">
-              <figure class="mb-0">
-                <img
-                  src="/assets/img/bestsilling/4-1.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover"
-                />
-                <img
-                  src="/assets/img/bestsilling/4-2.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
-                />
-                <figcaption class="semicircular-badge">۵۵٪</figcaption>
-              </figure>
-              <div class="main-page-bestsilling-slider__quantity-green">
-                <span>۸۵٪ ویژه کالای دوم</span>
-              </div>
-            </a>
-            <a href="" class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">NSO</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
-            </a>
-            <a href="" class="d-flex justify-content-between my-3">
-              <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
-              </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
-            </a>
-            <div
-              class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"
-            >
-              <a href="#"> SM </a>
-              <a href="#"> M </a>
-              <a href="#"> L </a>
-              <a href="#"> 1 + </a>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template swiperSlide>
-          <div class="swiper-slide">
-            <a href="" class="main-page-bestsilling-slider__image">
-              <figure class="mb-0">
-                <img
-                  src="/assets/img/bestsilling/5-1.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover"
-                />
-                <img
-                  src="/assets/img/bestsilling/5-2.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
-                />
-                <figcaption class="semicircular-badge">۵۵٪</figcaption>
-              </figure>
-            </a>
-            <a href="" class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">Baleno</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
-            </a>
-            <a href="" class="d-flex justify-content-between my-3">
-              <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
-              </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
-            </a>
-            <div
-              class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"
-            >
-              <a href="#"> SM </a>
-              <a href="#"> M </a>
-              <a href="#"> L </a>
-              <a href="#"> 1 + </a>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template swiperSlide>
-          <div class="swiper-slide">
-            <a href="" class="main-page-bestsilling-slider__image">
-              <figure class="mb-0">
-                <img
-                  src="/assets/img/bestsilling/6-1.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover"
-                />
-                <img
-                  src="/assets/img/bestsilling/6-2.jpg"
-                  alt="amazin product"
-                  width="275"
-                  height="330"
-                  title="amazin product"
-                  class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
-                />
-                <figcaption class="semicircular-badge">۵۵٪</figcaption>
-              </figure>
-              <div class="main-page-bestsilling-slider__quantity-green">
-                <span>۸۵٪ ویژه کالای دوم</span>
-              </div>
-            </a>
-            <a href="" class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">JootiJeans</h4>
-              <del class="main-page-bestsilling-slider__lastprice"
-                >2,325,000 تومان</del
-              >
-            </a>
-            <a href="" class="d-flex justify-content-between my-3">
-              <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
-              </h4>
-              <p class="main-page-bestsilling-slider__price">4,300,000 تومان</p>
+              <p class="main-page-bestsilling-slider__price">
+                {{ product.product_specific_price.specific_price | number }}
+                تومان
+              </p>
             </a>
             <div
               class="main-page-bestsilling-slider__product-size d-flex justify-conten-center align-items-center"

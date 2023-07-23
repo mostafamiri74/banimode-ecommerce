@@ -2,7 +2,24 @@
 <section class="product-detail-page-specifications mt-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-6"></div>
+      <div class="col-md-6 col-6">
+        <!-- <div class="product-detai-imgs">
+          <div class="row">
+            <ul ngbNav #nav="ngbNav" class="col-md-2 col-sm-3 col-4" orientation="vertical">
+              <li *ngFor="let myproduct of productDetail[0].images; let i = index" [ngbNavItem]="i" class="p-2">
+                <a ngbNavLink>
+                  <img src="{{myproduct}}" alt="" class="img-fluid mx-auto d-block rounded" />
+                </a>
+                <ng-template ngbNavContent>
+                  <img src={{myproduct}} id="expandedImg" alt=""
+                    class="img-fluid mx-auto d-block">
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="col-md-7 offset-md-1 col-sm-9 col-8"></div>
+          </div>
+        </div> -->
+      </div>
       <div class="col-md-6 col-6">
         <div
           class="d-flex flex-row product-detail-page-specifications__Introduction"
@@ -11,10 +28,11 @@
             <a
               href="#"
               class="mb-3 d-block text-black product-detail-page-specifications__brand-link"
-              >Feriolli</a
+            >
+              {{ (productDetails$ | async).product_manufacturer_en_name }}</a
             >
             <p class="product-detail-page-specifications__productname">
-              پیراهن مردانه فریولی Feriolli کد ۱۱۰۷۵
+              {{ (productDetails$ | async).product_manufacturer_fa_name }}
             </p>
             <span
               >دسته بندی:
@@ -37,7 +55,7 @@
 
         <div class="product-detail-page-specifications__price-box">
           <p class="product-detail-page-specifications__price-text">
-            1,390,000 تومان
+            {{ (productDetails$ | async).product_price | number }} تومان
           </p>
         </div>
 
@@ -54,7 +72,9 @@
             class="object-fit-cover"
           />
           <p class="product-detail-page-specifications__coin-text">
-            با خرید این محصول 139 بانی‌کوین به شما تعلق می‌گیرد.
+            با خرید این محصول
+            {{ (productDetails$ | async).customer_club_coin }}
+            بانی‌کوین به شما تعلق می‌گیرد.
           </p>
         </div>
 
