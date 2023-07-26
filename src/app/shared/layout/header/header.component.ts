@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent, map, switchMap } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class HeaderComponent {
   @ViewChild('search', { static: true }) search!: ElementRef;
   filterProduct!: any[];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    public cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     fromEvent(this.search.nativeElement, 'input')

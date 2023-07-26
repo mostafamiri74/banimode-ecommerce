@@ -29,10 +29,10 @@
               href="#"
               class="mb-3 d-block text-black product-detail-page-specifications__brand-link"
             >
-              {{ (productDetails$ | async).product_manufacturer_en_name }}</a
+              {{ (product$ | async).product_manufacturer_en_name }}</a
             >
             <p class="product-detail-page-specifications__productname">
-              {{ (productDetails$ | async).product_manufacturer_fa_name }}
+              {{ (product$ | async).product_manufacturer_fa_name }}
             </p>
             <span
               >دسته بندی:
@@ -55,7 +55,7 @@
 
         <div class="product-detail-page-specifications__price-box">
           <p class="product-detail-page-specifications__price-text">
-            {{ (productDetails$ | async).product_price | number }} تومان
+            {{ (product$ | async).product_price | number }} تومان
           </p>
         </div>
 
@@ -73,7 +73,7 @@
           />
           <p class="product-detail-page-specifications__coin-text">
             با خرید این محصول
-            {{ (productDetails$ | async).customer_club_coin }}
+            {{ (product$ | async).customer_club_coin }}
             بانی‌کوین به شما تعلق می‌گیرد.
           </p>
         </div>
@@ -104,6 +104,7 @@
         </select>
 
         <button
+          (click)="addToCart()"
           type="button"
           class="button d-flex justify-content-center align-items-center btn-add-to-cart"
         >

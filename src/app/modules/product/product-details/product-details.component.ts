@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import {
   A11y,
@@ -20,17 +21,26 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
-  productDetails$ = new Observable<any>();
+  product$ = new Observable<any>();
+  public product!: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.getProductDetails();
   }
 
   private getProductDetails() {
-    this.productService.getProductDetails().subscribe((res: any[]) => {
-      this.productDetails$ = of(res);
+    this.productService.getProductDetails().subscribe((res) => {
+      this.product$ = of(res);
+      this.product = res;
     });
+  }
+
+  public addToCart() {
+    this.cartService.addProduct(this.product);
   }
 }
