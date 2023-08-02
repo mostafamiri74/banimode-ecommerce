@@ -22,7 +22,9 @@
       >
         <a routerLink="/cart" id="basket-icon">
           <i class="fa-solid fa-basket-shopping"></i>
-          <span>{{ cartService.products.length }}</span>
+          <span *ngIf="cart.length > 0" class="cart-btn-count">{{
+            cart.length
+          }}</span>
         </a>
         <button
           type="button"

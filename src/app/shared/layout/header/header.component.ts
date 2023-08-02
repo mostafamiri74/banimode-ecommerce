@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { debounceTime, fromEvent, map, switchMap } from 'rxjs';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
+import { selectShoppingCart } from 'src/app/core/store/selector';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +13,17 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class HeaderComponent {
   @ViewChild('search', { static: true }) search!: ElementRef;
   filterProduct!: any[];
+  cart: any[] = [];
 
   constructor(
     private productService: ProductService,
-    public cartService: CartService
-  ) {}
+    private cartService: CartService,
+    private store: Store<{ items: []; cart: [] }>
+  ) {
+    this.store
+      .pipe(select(selectShoppingCart))
+      .subscribe((data) => console.log(data));
+  }
 
   ngOnInit(): void {
     fromEvent(this.search.nativeElement, 'input')

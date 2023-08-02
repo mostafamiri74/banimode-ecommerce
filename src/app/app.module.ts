@@ -13,6 +13,12 @@ import { ProductModule } from './modules/product/product.module';
 import { CartModule } from './modules/cart/cart.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { StoreModule, provideStore } from '@ngrx/store';
+import { shopReducer } from './core/store/reducer';
+import { EffectsModule, provideEffects } from '@ngrx/effects';
+import { ShopEffects } from './core/store/effects';
+import { appStore, appEffects } from './core/store/store';
+
 @NgModule({
   declarations: [AppComponent, AboutUsComponent, LegalNoticeComponent],
   imports: [
@@ -28,10 +34,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
+    StoreModule.forRoot({ shop: shopReducer }),
+    EffectsModule.forRoot([ShopEffects]),
   ],
-  providers: [],
+  providers: [provideStore(appStore), provideEffects(appEffects)],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

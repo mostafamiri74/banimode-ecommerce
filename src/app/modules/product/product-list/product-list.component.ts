@@ -1,14 +1,13 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  AbstractControl,
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
+import { ShopState } from 'src/app/core/store/reducer';
+import { ActionTypes } from 'src/app/core/store/actions';
+import { selectProducts } from 'src/app/core/store/selector';
+import { IProduct } from 'src/app/core/models/product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -23,21 +22,40 @@ export class ProductListComponent implements OnInit {
 
   page = 1;
 
-  productList$ = new Observable<any>();
+  productList$: Observable<any[]> = of([]);
+  items: any[] = [];
 
   constructor(
     private productService: ProductService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private store: Store<ShopState>
+  ) {
+    this.productList$ = this.store.select(selectProducts);
+    // .subscribe((products) => {
+    //   this.productList$ = of(products);
+    //   console.log(this.productList$);
+    // });
+    // this.store.select(productSelector).subscribe((data: any) => (this.items = data.products));
+    // this.productList$.subscribe((res) => console.log(res));
+    console.log(this.productList$);
+
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.store.dispatch({ type: ActionTypes.GetItems });
+  }
 
   ngOnInit(): void {
     // this.filterForm = this.formBuilder.group({
     //   category: this.formBuilder.array(this.createCheckboxes(this.categories)),
     // });
+    // this.store.dispatch(new GetItems());
+
     this.queryParams = this.queryParams.set('page', this.page);
 
     // this.onFormChanges();
-    this.getProductlist();
+    // this.getProductlist();
   }
 
   private getProductlist() {

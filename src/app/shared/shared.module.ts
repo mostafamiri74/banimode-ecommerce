@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
   imports: [
+    CommonModule,
     PaginationModule,
     RouterModule,
     SwiperModule,

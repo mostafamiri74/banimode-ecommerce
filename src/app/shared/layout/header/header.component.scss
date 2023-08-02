@@ -40,6 +40,7 @@ header {
     height: 27px;
     width: 27px;
     color: #000;
+    position: relative;
 
     i {
       font-size: 29px;
@@ -113,4 +114,23 @@ header {
       }
     }
   }
+}
+.cart-btn-count {
+  position: absolute;
+  min-width: 18px;
+  padding: 0 2px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00bf6f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  top: 2px;
+  right: -6px;
 }

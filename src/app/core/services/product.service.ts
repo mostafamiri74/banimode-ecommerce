@@ -16,7 +16,7 @@ export class ProductService {
     return this.http.get<any>('/assets/mock-data/best_silling_products.json');
   }
 
-  public getProductList(queryParams: HttpParams): Observable<any> {
+  public getProductList(queryParams?: HttpParams): Observable<any> {
     return this.http.get<any>('/assets/mock-data/product_list.json', {
       params: queryParams,
     });
