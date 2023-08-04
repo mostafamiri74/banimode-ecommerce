@@ -16,6 +16,15 @@ export const selectProducts = createSelector(
   (state: ShopState) => state.products
 );
 
+export const selectProductQuantity = createSelector(
+  selectShoppingCart,
+  (products: any[], props: { productId: any }) => {
+    const product = products.find((p) => p.id_product == props.productId);
+
+    return product ? product.quantity : 0;
+  }
+);
+
 // export const selectShoppingCart = createSelector(
 //   selectProducts,
 //   selectShoppingCartState,

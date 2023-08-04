@@ -6,6 +6,8 @@ export enum ActionTypes {
   Remove = '[Product] Remove from cart',
   GetItems = '[Products] Load items from server',
   LoadSuccess = '[Products] Load success',
+  increaseQuantity = '[Cart] Increase Quantity',
+  decreaseQuantity = '[Cart] Decrease Quantity',
 }
 
 export const AddToCart = createAction(
@@ -15,15 +17,24 @@ export const AddToCart = createAction(
 
 export const RemoveFromCart = createAction(
   ActionTypes.Remove,
-  props<{ id: string }>()
+  props<{ id: number }>()
 );
 
 export const GetItems = createAction(
   ActionTypes.GetItems,
-  props<{ product: IProduct[] }>()
+  props<{ product: any[] }>()
 );
 
 export const LoadSuccess = createAction(
   ActionTypes.LoadSuccess,
-  props<{ product: IProduct[] }>()
+  props<{ product: any[] }>()
+);
+
+export const increaseQuantity = createAction(
+  ActionTypes.increaseQuantity,
+  props<{ product: any }>()
+);
+export const decreaseQuantity = createAction(
+  ActionTypes.decreaseQuantity,
+  props<{ product: any }>()
 );

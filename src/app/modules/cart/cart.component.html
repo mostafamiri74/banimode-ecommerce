@@ -10,87 +10,111 @@
 
       <div class="cart-products">
         <div>
-          <div class="cart-product" data-product-id="597914">
-            <div class="cart-product-img">
-              <div class="img-box">
-                <a
-                  href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
-                  target="_blank"
-                >
-                  <span class="overlay"></span>
-                  <img
-                    src="https://www.banimode.com/971212-large_default/پیراهن-مردانه-هوگرو-hugero-کد-10266.jpg"
-                    alt="پیراهن مردانه هوگرو Hugero کد 10266"
-                  />
-                </a>
-                <button
-                  class="delete"
-                  type="button"
-                  data-ga4='{"value":1290000,"item_id":"102660107","item_name":"پیراهن مردانه هوگرو Hugero کد 10266","discount":258000,"item_brand":"Hugero Men","item_category":"Long Sleeve Shirts-M","price":1032000,"quantity":1,"base_price":1290000}'
-                ></button>
-              </div>
-            </div>
-            <div class="cart-product-content">
-              <div class="cart-product-details">
-                <p class="title"><span>هوگرو مردانه</span></p>
-                <a
-                  href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
-                  target="_blank"
-                  ><p>پیراهن مردانه هوگرو Hugero کد 10266</p></a
-                >
-                <div class="size-color">
-                  <div class="item size"><span>سایز:</span><span>L</span></div>
-                  <div class="item color">
-                    <span>رنگ:</span><span>مشکی</span>
-                  </div>
-                </div>
-                <div class="product-code">
-                  <span>کد محصول:</span><span>102660107</span>
+          <ng-container *ngFor="let product of cart">
+            <div class="cart-product" data-product-id="597914">
+              <div class="cart-product-img">
+                <div class="img-box">
+                  <a
+                    href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
+                    target="_blank"
+                  >
+                    <span class="overlay"></span>
+                    <img
+                      [src]="product.images.large_default[0]"
+                      [alt]="product.product_manufacturer_fa_name"
+                    />
+                  </a>
+                  <button
+                    (click)="removeFromCart(product.id_product)"
+                    class="delete"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-close"></i>
+                  </button>
                 </div>
               </div>
-              <div class="cart-product-price have-discount">
-                <div class="original">
-                  <span>1,290,000</span><span class="toman"> تومان</span>
-                </div>
-                <div class="discount">
-                  <div class="discount-value">
-                    <span>20%</span><span class="pr-2">تخفیف </span>
+              <div class="cart-product-content">
+                <div class="cart-product-details">
+                  <p class="title">
+                    <span>{{ product.product_manufacturer_fa_name }}</span>
+                  </p>
+                  <a
+                    href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
+                    target="_blank"
+                    ><p>{{ product.product_manufacturer_en_name }}</p></a
+                  >
+                  <div class="size-color">
+                    <div class="item size">
+                      <span>سایز:</span><span>L</span>
+                    </div>
+                    <div class="item color">
+                      <span>رنگ:</span><span>مشکی</span>
+                    </div>
                   </div>
-                  <div class="discount-price">
-                    <span>258,000</span><span class="toman"> تومان</span>
+                  <div class="product-code">
+                    <span>کد محصول:</span
+                    ><span>{{ product.reference | number }}</span>
                   </div>
                 </div>
-              </div>
-              <div class="cart-quantity-selector">
-                <div class="quantity-selector-box">
-                  <button class="add">
-                    <!-- <img
+                <div class="cart-product-price have-discount">
+                  <div class="original">
+                    <span>{{ product.product_price | number }}</span
+                    ><span class="toman"> تومان</span>
+                  </div>
+                  <div class="discount">
+                    <div class="discount-value">
+                      <span>{{
+                        product.product_specific_price.discount_percent | number
+                      }}</span
+                      ><span class="pr-2">تخفیف </span>
+                    </div>
+                    <div class="discount-price">
+                      <span>{{
+                        product.product_specific_price.specific_price | number
+                      }}</span
+                      ><span class="toman"> تومان</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-quantity-selector">
+                  <div class="quantity-selector-box">
+                    <button
+                      class="add"
+                      (click)="increaseProductQuantity(product)"
+                    >
+                      <!-- <img
                       src="/themes/new/assets/images/icon/add.svg"
                       alt="add"
                     /> -->
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                  <input type="number" value="1" readonly="" />
-                  <button
-                    class="reduce"
-                    data-ga4='{"value":1290000,"item_id":"102660107","item_name":"پیراهن مردانه هوگرو Hugero کد 10266","discount":258000,"item_brand":"Hugero Men","item_category":"Long Sleeve Shirts-M","price":1032000,"quantity":1,"base_price":1290000}'
-                  >
-                    <!-- <img
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <input
+                      type="number"
+                      [value]="getProductQuantity(product.id_product) | async"
+                      readonly=""
+                    />
+                    <!-- <p>{{ getProductQuantity(product.id_product) | async }}</p> -->
+                    <button
+                      class="reduce"
+                      (click)="decreaseProductQuantity(product)"
+                    >
+                      <!-- <img
                       src="/themes/new/assets/images/icon/minus.svg"
                       alt="reduce"
                     /> -->
-                    <i class="fa-solid fa-minus"></i>
-                  </button>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="cart-product-price green">
-                <div class="original">
-                  <span>1,032,000</span><span class="toman"> تومان</span>
+                <div class="cart-product-price green">
+                  <div class="original">
+                    <span>1,032,000</span><span class="toman"> تومان</span>
+                  </div>
+                  <div class="cart-not-exist">ناموجود</div>
                 </div>
-                <div class="cart-not-exist">ناموجود</div>
               </div>
             </div>
-          </div>
+          </ng-container>
         </div>
       </div>
     </div>

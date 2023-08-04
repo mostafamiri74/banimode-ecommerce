@@ -22,7 +22,7 @@ export class HeaderComponent {
   ) {
     this.store
       .pipe(select(selectShoppingCart))
-      .subscribe((data) => console.log(data));
+      .subscribe((data) => (this.cart = data));
   }
 
   ngOnInit(): void {

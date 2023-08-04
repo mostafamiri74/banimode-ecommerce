@@ -49,13 +49,8 @@ export class ProductDetailsComponent {
   public addToCart() {
     // this.cartService.addProduct(this.product);
     // this.store.dispatch({ type: ActionTypes.Add });
-    this.store.dispatch(AddToCart(this.product));
+    this.store.dispatch(AddToCart({ product: this.product }));
 
     this.inCart = true;
-  }
-
-  removeFromCart() {
-    this.store.dispatch({ type: ActionTypes.Remove });
-    this.inCart = false;
   }
 }
