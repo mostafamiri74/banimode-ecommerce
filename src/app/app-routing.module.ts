@@ -20,6 +20,18 @@ const routes: Routes = [
           import('./modules/home/home.module').then((m) => m.HomeModule),
       },
       {
+        path: 'product',
+        loadChildren: () =>
+          import('./modules/product/product.module').then(
+            (m) => m.ProductModule
+          ),
+      },
+      {
+        path: 'cart',
+        loadChildren: () =>
+          import('./modules/cart/cart.module').then((m) => m.CartModule),
+      },
+      {
         path: 'about-us',
         component: AboutUsComponent,
       },

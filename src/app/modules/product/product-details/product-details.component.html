@@ -1,0 +1,730 @@
+<!-- ========== Start Specifications Section ========== -->
+<section class="product-detail-page-specifications mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-6">
+        <!-- <div class="product-detai-imgs">
+          <div class="row">
+            <ul ngbNav #nav="ngbNav" class="col-md-2 col-sm-3 col-4" orientation="vertical">
+              <li *ngFor="let myproduct of productDetail[0].images; let i = index" [ngbNavItem]="i" class="p-2">
+                <a ngbNavLink>
+                  <img src="{{myproduct}}" alt="" class="img-fluid mx-auto d-block rounded" />
+                </a>
+                <ng-template ngbNavContent>
+                  <img src={{myproduct}} id="expandedImg" alt=""
+                    class="img-fluid mx-auto d-block">
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="col-md-7 offset-md-1 col-sm-9 col-8"></div>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-md-6 col-6">
+        <div
+          class="d-flex flex-row product-detail-page-specifications__Introduction"
+        >
+          <div class="col-sm-9 col-12">
+            <a
+              href="#"
+              class="mb-3 d-block text-black product-detail-page-specifications__brand-link"
+            >
+              {{ (product$ | async)!.product_manufacturer_en_name }}</a
+            >
+            <p class="product-detail-page-specifications__productname">
+              {{ (product$ | async)!.product_manufacturer_fa_name }}
+            </p>
+            <span
+              >دسته بندی:
+              <a
+                href=""
+                class="ms-2 product-detail-page-specifications__categorylink"
+                >پیراهن آستین کوتاه مردانه</a
+              ></span
+            >
+          </div>
+          <div class="col-sm-3 col-12 text-end">
+            <button class="product-detail-page-specifications__tools-btn">
+              <i class="fa fa-heart"></i>
+            </button>
+            <button class="product-detail-page-specifications__tools-btn">
+              <i class="fa fa-share-alt"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="product-detail-page-specifications__price-box">
+          <p class="product-detail-page-specifications__price-text">
+            {{ (product$ | async).product_price | number }} تومان
+          </p>
+        </div>
+
+        <div
+          class="d-flex flex-row align-items-center product-detail-page-specifications__coin-box"
+        >
+          <img
+            src="/assets/img/product-detail-page/coin.svg"
+            alt="coin"
+            title="coin"
+            width="34"
+            height="34"
+            loading="lazy"
+            class="object-fit-cover"
+          />
+          <p class="product-detail-page-specifications__coin-text">
+            با خرید این محصول
+            {{ (product$ | async).customer_club_coin }}
+            بانی‌کوین به شما تعلق می‌گیرد.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-5 product-detail-page-specifications__color">
+          <!-- <p>رنگ:</p>
+                  <div class="product-detail-page-specifications__color-box">
+                    <div class="col-md-2 colo product-detail-page-specifications__color-item">
+                      <figure>
+                        <img src="/assets/img/product-detail-page/colors-slider/1.jpg" alt="product color" title="product color" width="100" height="102" loading="lazy" class="object-fit-cover">
+                        <figcaption>سبز زیتونی</figcaption>
+                      </figure>
+                    </div>
+                  </div> -->
+        </div>
+
+        <select
+          class="col-md-6 col-12 form-select form-select-lg mb-3 product-detail-page-specifications__size"
+          aria-label=".form-select-lg example"
+        >
+          <option selected>انتخاب سایز</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+
+        <button
+          (click)="addToCart()"
+          type="button"
+          class="button d-flex justify-content-center align-items-center btn-add-to-cart"
+          [disabled]="inCart"
+        >
+          <i class="fa-solid fa-basket-shopping"></i>
+          افزودن به سبد خرید
+        </button>
+
+        <div class="row">
+          <div
+            class="col-md-3 col-12 product-detail-page-specifications__warranty"
+          >
+            <figure class="d-flex align-items-center">
+              <img
+                src="/assets/img/product-detail-page/product-warranty/7days.png"
+                alt="gurranty"
+                title="gurranty"
+                width="48"
+                height="46"
+                loading="lazy"
+                class="object-fit-cover"
+              />
+              <figcaption>ضمانت بازگشت کالا</figcaption>
+            </figure>
+          </div>
+          <div
+            class="col-md-3 col-12 product-detail-page-specifications__warranty"
+          >
+            <figure class="d-flex align-items-center">
+              <img
+                src="/assets/img/product-detail-page/product-warranty/originality-light.svg"
+                alt="gurranty"
+                title="gurranty"
+                width="48"
+                height="46"
+                loading="lazy"
+                class="object-fit-cover"
+              />
+              <figcaption>ضمانت اصالت کالا</figcaption>
+            </figure>
+          </div>
+          <div
+            class="col-md-3 col-12 product-detail-page-specifications__warranty"
+          >
+            <figure class="d-flex align-items-center">
+              <img
+                src="/assets/img/product-detail-page/product-warranty/support-light.svg"
+                alt="gurranty"
+                title="gurranty"
+                width="48"
+                height="46"
+                loading="lazy"
+                class="object-fit-cover"
+              />
+              <figcaption>خدمات پس از خرید</figcaption>
+            </figure>
+          </div>
+          <div
+            class="col-md-3 col-12 product-detail-page-specifications__warranty"
+          >
+            <figure class="d-flex align-items-center">
+              <img
+                src="/assets/img/product-detail-page/product-warranty/delivery-light.svg"
+                alt="gurranty"
+                title="gurranty"
+                width="48"
+                height="46"
+                loading="lazy"
+                class="object-fit-cover"
+              />
+              <figcaption>تحویل سریع و آسان</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== End Specifications Section ========== -->
+
+<!-- ========== Start Details Section ========== -->
+<section class="product-detail-page-details my-5">
+  <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#home-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="home-tab-pane"
+          aria-selected="true"
+        >
+          ویژگی ها
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="product-detail-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#product-detail-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="product-detail-tab-pane"
+          aria-selected="false"
+        >
+          مشخصات محصول
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="contact-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#product-comment"
+          type="button"
+          role="tab"
+          aria-controls="product-comment"
+          aria-selected="false"
+        >
+          نظرات کاربران
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="home-tab-pane"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+        tabindex="0"
+      >
+        <ul class="custom-style-line">
+          <li><strong>نرمی و زبری:</strong>&nbsp;نرم</li>
+          <li><strong>ضخامت پارچه:</strong>&nbsp;متوسط</li>
+          <li><strong>جزئیات مدل: </strong>دارای&nbsp;طرح چاپ&nbsp;</li>
+          <li>
+            <strong>قد تیشرت:</strong>&nbsp;برای سایز M، در حدود 75 سانتی متر
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="product-detail-tab-pane"
+        role="tabpanel"
+        aria-labelledby="product-detail-tab"
+        tabindex="0"
+      >
+        <ul class="specifications">
+          <li>
+            <span>کد محصول</span>
+            <span id="product-refrence">31573902</span>
+            <span id="product-refrence-size"></span>
+          </li>
+          <li>
+            <span>یقه</span>
+            <span>گرد</span>
+          </li>
+          <li>
+            <span>آستین</span>
+            <span>کوتاه</span>
+          </li>
+          <li>
+            <span>طرح</span>
+            <span>ساده</span>
+          </li>
+          <li>
+            <span>قواره</span>
+            <span>Fit (متناسب)</span>
+          </li>
+          <li>
+            <span>نوع شستشو</span>
+            <span>ماشینی</span>
+          </li>
+          <li>
+            <span>نحوه شستشو</span>
+            <span>به صورت مجزا یا با رنگ‌های مشابه</span>
+          </li>
+          <li>
+            <span>ماکزیمم دمای شستشو</span>
+            <span>30 درجه سانتی‌گراد</span>
+          </li>
+          <li>
+            <span>ماکزیمم دمای اتوکشی</span>
+            <span>110 درجه سانتی‌گراد</span>
+          </li>
+          <li>
+            <span>مناسب برای </span>
+            <span>آقایان</span>
+          </li>
+          <li>
+            <span>مناسب برای فصول</span>
+            <span>گرم</span>
+          </li>
+          <li>
+            <span>برند</span>
+            <span>JootiJeans</span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="product-comment"
+        role="tabpanel"
+        aria-labelledby="contact-tab"
+        tabindex="0"
+      >
+        <div class="comments-container">
+          <div class="comment">
+            <div class="details">
+              <p class="description my-comment">
+                <b>اولین نفر باشید که نظر می‌دهید.</b>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-comment">
+          <div class="add-comment-box col-7 mt-5">
+            <p class="title">ثبت نظر</p>
+            <p class="description">
+              لطفا قبل از نوشتن نظر خود در مورد این محصول، قوانین و ضوابط را
+              مطالعه کنید.
+            </p>
+
+            <input
+              type="text"
+              id="comment_title"
+              placeholder="عنوان نظر"
+              class="error"
+            />
+            <span class="comment-title_error d-none"></span>
+            <textarea
+              id="comment_content"
+              cols="30"
+              rows="10"
+              placeholder="نظر خود را بنویسید …"
+              class="error"
+            ></textarea>
+            <span class="comment-content_error d-none"></span>
+            <!-- start feedback -->
+            <div id="perfume-comment" class="perfume-comment"></div>
+            <!-- end feedback -->
+            <div class="btn-box">
+              <label class="like-radio like">
+                <input
+                  type="radio"
+                  name="comment_rate"
+                  class="comment_rate"
+                  value="1"
+                />
+                <span class="like-shape"></span>
+                <p>خرید این محصول را پیشنهاد می کنم.</p>
+              </label>
+              <label class="like-radio dislike">
+                <input
+                  type="radio"
+                  name="comment_rate"
+                  class="comment_rate"
+                  value="2"
+                />
+                <span class="like-shape dis"></span>
+                <p>خرید این محصول را پیشنهاد نمی کنم.</p>
+              </label>
+              <button id="addComment" onclick="">ثبت نظر</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== End Details Section ========== -->
+
+<!-- ========== Start Similar Products Section ========== -->
+<section class="main-page-bestsilling my-5">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6 main-page-bestsilling__title text-center">
+        <h4>محصولات مشابه</h4>
+      </div>
+    </div>
+    <div class="row main-page-bestsilling__slider">
+      <!-- Swiper -->
+      <swiper
+        class="swiper-amazing position-relative overflow-hidden"
+        [slidesPerView]="4"
+        [spaceBetween]="50"
+        [loop]="true"
+        [autoHeight]="true"
+        [allowTouchMove]="true"
+      >
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/1-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/1-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">RNS</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/2-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/2-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">JootiJeans</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/3-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/3-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">RNS</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/4-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/4-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">RNS</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/5-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/5-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">JootiJeans</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="swiper-slide">
+            <a href="" class="main-page-amazing-slider__image">
+              <figure class="mb-0">
+                <img
+                  src="/assets/img/amazing/6-1.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover"
+                />
+                <img
+                  src="/assets/img/amazing/6-2.jpg"
+                  alt="amazin product"
+                  width="275"
+                  height="330"
+                  title="amazin product"
+                  class="object-fit-cover main-page-amazing-slider__image-hover-show"
+                />
+                <figcaption class="cyrcle-badge">30%</figcaption>
+              </figure>
+              <div
+                class="main-page-amazing-slider__quantity d-flex align-items-center justify-content-around"
+              >
+                <span class="">تعداد باقیمانده:</span>
+                <span class="main-page-amazing-slider__quantity-count"
+                  >۶ عدد</span
+                >
+              </div>
+            </a>
+            <a href="" class="d-flex justify-content-between mt-3">
+              <h4 class="main-page-amazing-slider__brands">RNS</h4>
+              <del class="main-page-amazing-slider__lastprice"
+                >1,150,000 تومان</del
+              >
+            </a>
+            <a href="" class="d-flex justify-content-between my-3">
+              <h4 class="main-page-amazing-slider__name">
+                تیشرت طرح دار مردانه جامه
+              </h4>
+              <p class="main-page-amazing-slider__price">2,200,000 تومان</p>
+            </a>
+            <div
+              class="main-page-amazing-slider__product-size d-flex justify-conten-center align-items-center"
+            >
+              <a href="#"> SM </a>
+              <a href="#"> M </a>
+              <a href="#"> L </a>
+              <a href="#"> 1 + </a>
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</section>
+<!-- ========== End Similar Products Section ========== -->

@@ -1,0 +1,14 @@
+<ol class="paginator-container">
+  <li (click)="navigateToPage(1)">اولین صفحه</li>
+  <li (click)="navigateToPage(index - 1)">صفحه قبل</li>
+  <li
+    *ngFor="let page of pagination.pages; trackBy: trackByFn"
+    class="paginator-number"
+    [class.active]="page === pagination.index"
+    (click)="navigateToPage(page)"
+  >
+    {{ page }}
+  </li>
+  <li (click)="navigateToPage(index + 1)">صفحه بعد</li>
+  <li (click)="navigateToPage(maxPages)">آخرین صفحه</li>
+</ol>

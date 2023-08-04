@@ -1,0 +1,209 @@
+@import "/src/styles/abstracts/colors";
+@import "/src/styles/abstracts/mixins";
+
+.product-list {
+  .search-box {
+    #search-input {
+      @include search-input();
+      border-radius: 9px;
+    }
+
+    #search-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      .fa-search {
+        font-size: 27px;
+      }
+    }
+  }
+
+  &-item {
+    &:hover {
+      .product-list__image-hover-show {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title {
+    a {
+      figure {
+        width: 306px;
+        height: 55px;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(111, 115, 119, 0.07);
+      border-radius: 8px;
+    }
+
+    figure {
+      position: relative;
+
+      .cyrcle-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 50px;
+        width: 50px;
+        line-height: 3;
+        font-size: 17px;
+        font-weight: 700;
+        color: #fff;
+        background-color: $orange-color;
+        border-radius: 50em;
+        text-align: center;
+      }
+
+      .semicircular-badge {
+        @extend .cyrcle-badge;
+        left: 0;
+        height: 30px;
+        line-height: 2;
+        border-radius: 0 25px 25px 0;
+      }
+    }
+
+    &-hover-show {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 8px;
+      transition: all 0.3s linear;
+    }
+  }
+
+  &__brands {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 70%;
+  }
+
+  &__lastprice {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8c8c8c;
+    text-decoration: line-through;
+    text-align: left;
+  }
+
+  &__name {
+    font-size: 16px;
+    text-align: right;
+    color: #666;
+    width: 60%;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+  }
+
+  &__price {
+    font-size: 14px;
+    font-weight: 700;
+    color: $green-color;
+  }
+
+  &__quantity {
+    background-color: $orange-color;
+    color: white;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 15px;
+    font-size: 15px;
+    right: 18%;
+    width: 60%;
+    padding: 7px 0;
+
+    &-green {
+      @extend .product-list__quantity;
+
+      font-size: 14px;
+      right: 27%;
+      background-color: $green-color;
+      padding: 7px;
+      width: fit-content;
+    }
+  }
+
+  &__product-size {
+    a {
+      width: fit-content;
+      height: 25px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      line-height: 1.7;
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 4px;
+      padding: 0 10px;
+      color: #8c8c8c;
+      &:last-child {
+        color: $orange-color;
+      }
+    }
+  }
+
+  .btn-more {
+    @include button(
+      $color: $green-color,
+      $border-color: #ccc,
+      $background-color: white
+    );
+
+    width: 20%;
+    padding: 13px;
+
+    &:hover {
+      border-color: $green-color;
+      border-width: 1px;
+    }
+  }
+}
+
+.product-filter-sidebar {
+  & > div:not(:first-child) {
+    padding: 20spx 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .remove-filters {
+    @include button(
+      $color: $orange-color,
+      $background-color: white,
+      $border-color: none,
+      $border-width: 0
+    );
+
+    &:hover {
+      border-width: 0;
+      transition: all 0.3s;
+      color: $green-color;
+    }
+  }
+}

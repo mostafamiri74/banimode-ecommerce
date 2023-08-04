@@ -11,7 +11,7 @@ import { HomeFeaturesComponent } from './home-features/home-features.component';
 import { HomeBrandsComponent } from './home-brands/home-brands.component';
 import { HomeBlogComponent } from './home-blog/home-blog.component';
 import { HomeNewsletterComponent } from './home-newsletter/home-newsletter.component';
-import { SwiperModule } from 'swiper/angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,6 @@ import { SwiperModule } from 'swiper/angular';
     HomeBlogComponent,
     HomeNewsletterComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, SwiperModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
 export class HomeModule {}

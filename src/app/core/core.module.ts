@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { MainWrapperComponent } from './components/main-wrapper/main-wrapper.component';
-import { HeaderComponent } from '../modules/layout/header/header.component';
-import { FooterComponent } from '../modules/layout/footer/footer.component';
+import { HeaderComponent } from '../shared/layout/header/header.component';
+import { FooterComponent } from '../shared/layout/footer/footer.component';
 
 @NgModule({
-  declarations: [MainWrapperComponent, HeaderComponent, FooterComponent],
+  declarations: [MainWrapperComponent],
   imports: [CommonModule, SharedModule, RouterModule],
 })
 export class CoreModule {}
