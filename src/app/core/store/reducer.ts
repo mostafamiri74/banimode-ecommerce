@@ -23,7 +23,7 @@ export const shopReducer = createReducer(
   initialState,
 
   on(AddToCart, (state, { product }) => {
-    // product.id_product = 1;
+    // product.id = 1;
     let productCopy = { ...product, quantity: 1 };
     return {
       ...state,
@@ -32,7 +32,7 @@ export const shopReducer = createReducer(
   }),
   on(RemoveFromCart, (state, { id }) => ({
     ...state,
-    cart: state.cart.filter((product) => product.id_product !== id),
+    cart: state.cart.filter((product) => product.id !== id),
   })),
   on(GetItems, (state) => ({
     ...state,

@@ -1,6 +1,5 @@
 export interface IProduct {
-  id: string;
-  id_product: number;
+  id: number;
   id_product_attribute: number;
   id_color: number;
   product_reference: string;
@@ -12,7 +11,11 @@ export interface IProduct {
   product_manufacturer_en_name: string;
   product_manufacturer_id: number;
   product_manufacturer_slug: string;
-  product_specific_price: null;
+  product_specific_price: {
+    specific_price: number;
+    discount_amount: number;
+    discount_percent: number;
+  };
   product_category_default_name_en: string;
   color_name: string;
   color_slug: string;

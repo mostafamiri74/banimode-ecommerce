@@ -1,6 +1,6 @@
 [
   {
-    "id_product": 74361,
+    "id": 74361,
     "id_product_attribute": 487185,
     "id_color": 46,
     "product_reference": "SIM-4042",
@@ -505,7 +505,7 @@
     "all_colors_count": 10
   },
   {
-    "id_product": 42920,
+    "id": 42920,
     "id_product_attribute": 296145,
     "id_color": 1,
     "product_reference": "4012019391",
@@ -734,7 +734,7 @@
     "all_colors_count": 3
   },
   {
-    "id_product": 23577,
+    "id": 23577,
     "id_product_attribute": 176497,
     "id_color": 17,
     "product_reference": "121101",
@@ -1248,7 +1248,7 @@
     "all_colors_count": 22
   },
   {
-    "id_product": 72090,
+    "id": 72090,
     "id_product_attribute": 472101,
     "id_color": 287,
     "product_reference": "PL-ISH-01",
@@ -1519,7 +1519,7 @@
     "all_colors_count": 4
   },
   {
-    "id_product": 49890,
+    "id": 49890,
     "id_product_attribute": 346779,
     "id_color": 119,
     "product_reference": "ALDO-FAROHIMA",
@@ -1726,7 +1726,7 @@
     "all_colors_count": 2
   },
   {
-    "id_product": 72040,
+    "id": 72040,
     "id_product_attribute": 471893,
     "id_color": 17,
     "product_reference": "SI-102012123",
@@ -1909,7 +1909,7 @@
     "all_colors_count": 1
   },
   {
-    "id_product": 78473,
+    "id": 78473,
     "id_product_attribute": 515819,
     "id_color": 1,
     "product_reference": "NOA-5045-3",
@@ -2142,7 +2142,7 @@
     "all_colors_count": 3
   },
   {
-    "id_product": 46181,
+    "id": 46181,
     "id_product_attribute": 319617,
     "id_color": 8,
     "product_reference": "MUH707",
@@ -2336,7 +2336,7 @@
     "all_colors_count": 1
   },
   {
-    "id_product": 73781,
+    "id": 73781,
     "id_product_attribute": 483931,
     "id_color": 122,
     "product_reference": "AJ-1249-1",
@@ -2579,7 +2579,7 @@
     "all_colors_count": 4
   },
   {
-    "id_product": 39991,
+    "id": 39991,
     "id_product_attribute": 271964,
     "id_color": 63,
     "product_reference": "4012029259",

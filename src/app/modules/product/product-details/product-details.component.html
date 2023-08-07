@@ -316,6 +316,48 @@
         tabindex="0"
       >
         <div class="comments-container">
+          <div *ngFor="let comment of displayedComments" class="comment">
+            <div class="user-img">
+              <span
+                class="font-icon icon-profile-comments"
+                style="font-size: 40px; color: gray"
+              ></span>
+            </div>
+            <div class="details">
+              <div class="title">
+                <p class="title-comment">
+                  <span>خوبه</span> <span>(صبا مهربانی)</span>
+                </p>
+                <p class="date">۱۴۰۱/۱۱/۱۵</p>
+                <div class="opinion opinion-right-margin">
+                  <p class="">
+                    <img
+                      src="https://banimode.com//themes/new//assets/images/icon/like.svg"
+                    />
+                    <span>خرید این محصول را پیشنهاد می کنم.</span>
+                  </p>
+                </div>
+              </div>
+              <p class="description" style="white-space: pre-wrap">
+                {{ comment }}
+              </p>
+
+              <div class="feedback-row d-none"></div>
+              <div class="added-upload-image-items"></div>
+              <div class="comment-answer d-none">
+                <span>پاسخ: </span><span> null </span>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="load-more-btn"
+            *ngIf="!disableLoadMoreButton"
+            (click)="loadMoreComments()"
+          >
+            نمایش بیشتر
+          </button>
+
           <div class="comment">
             <div class="details">
               <p class="description my-comment">
