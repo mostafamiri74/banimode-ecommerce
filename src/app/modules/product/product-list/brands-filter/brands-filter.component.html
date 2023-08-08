@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title>Brands Filter</mat-card-title>
+  <mat-card-content>
+    <mat-checkbox
+      *ngFor="let brand of brands"
+      [(ngModel)]="selectedBrands[brand]"
+      (change)="applyFilters()"
+    >
+      {{ brand }}
+    </mat-checkbox>
+  </mat-card-content>
+</mat-card>

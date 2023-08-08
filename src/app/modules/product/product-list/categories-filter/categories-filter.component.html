@@ -1,1 +1,12 @@
-<p>categories-filter works!</p>
+<mat-card>
+  <mat-card-title>category Filter</mat-card-title>
+  <mat-card-content>
+    <mat-checkbox
+      *ngFor="let category of categories"
+      [(ngModel)]="selectedCategories[category]"
+      (change)="applyFilters()"
+    >
+      {{ category }}
+    </mat-checkbox>
+  </mat-card-content>
+</mat-card>
