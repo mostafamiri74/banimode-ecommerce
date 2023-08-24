@@ -17,7 +17,7 @@ export class PricesFilterComponent {
 
   constructor(private productService: ProductService) {}
 
-  applyPriceFilter(): void {
+  applyFilters(): void {
     const queryParams: { [key: string]: number } = {
       minPrice: this.minValue,
       maxPrice: this.maxValue,

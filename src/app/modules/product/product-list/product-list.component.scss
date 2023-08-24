@@ -43,6 +43,10 @@
     position: relative;
     display: block;
 
+    img {
+      border-radius: 8px;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -187,7 +191,7 @@
 }
 
 .product-filter-sidebar {
-  & > div:not(:first-child) {
+  & > div:not(:first-child):not(:last-child) {
     padding: 20spx 0;
     border-bottom: 1px solid #ccc;
   }

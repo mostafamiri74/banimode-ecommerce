@@ -1,0 +1,36 @@
+.limitTextHeight {
+  height: 120px !important;
+  overflow: hidden;
+}
+
+.brand {
+  &-container {
+    transition: all 0.5s linear;
+  }
+
+  &-title {
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0px;
+    display: block;
+    line-height: 50px;
+    float: none;
+  }
+}
+
+.show-more-btn {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  opacity: 0.6;
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

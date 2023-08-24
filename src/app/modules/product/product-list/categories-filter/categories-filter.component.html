@@ -1,12 +1,25 @@
-<mat-card>
-  <mat-card-title>category Filter</mat-card-title>
-  <mat-card-content>
+<div class="py-3">
+  <span class="category-title">دسته بندی:</span>
+  <div
+    class="d-flex flex-column category-container"
+    [ngClass]="{ limitTextHeight: isReadMore }"
+  >
     <mat-checkbox
       *ngFor="let category of categories"
       [(ngModel)]="selectedCategories[category]"
       (change)="applyFilters()"
+      labelPosition="before"
     >
       {{ category }}
     </mat-checkbox>
-  </mat-card-content>
-</mat-card>
+  </div>
+
+  <button type="button" (click)="showMore()" class="show-more-btn">
+    {{ isReadMore ? "برندهای بیشتر" : "کمتر" }}
+    <i
+      class="fa-solid"
+      [ngClass]="isReadMore ? ' fa-chevron-down' : ' fa-chevron-up'"
+    ></i>
+  </button>
+</div>
+<hr />

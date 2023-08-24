@@ -9,12 +9,23 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class CategoriesFilterComponent {
   @Output() categorySelected = new EventEmitter<string[]>();
 
-  categories: string[] = ['Clothing', 'Shoes', 'Accessories']; // Replace with actual categories
-
+  categories: string[] = [
+    'مردانه',
+    'زنانه',
+    'نوجوان',
+    'آرایشی و بهداشتی',
+    'عطر و ادکلن',
+    'لوازم خانه',
+  ];
   selectedCategories: { [key: string]: boolean } = {};
+
+  isReadMore = true;
 
   constructor(private productService: ProductService) {}
 
+  showMore() {
+    this.isReadMore = !this.isReadMore;
+  }
   applyFilters(): void {
     const selectedCategoryKeys = Object.keys(this.selectedCategories).filter(
       (key: string) => this.selectedCategories[key]

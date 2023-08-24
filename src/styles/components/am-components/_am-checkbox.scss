@@ -1,0 +1,54 @@
+@import "../../abstracts/colors";
+
+.mdc-form-field.mdc-form-field--align-end {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .mdc-checkbox__background {
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin: auto;
+    border: 1px solid #00bf6f;
+    background-color: #00bf6f;
+    cursor: pointer !important;
+  }
+
+  .mdc-checkbox
+    .mdc-checkbox__native-control:enabled:focus:checked
+    ~ .mdc-checkbox__background,
+  .mdc-checkbox
+    .mdc-checkbox__native-control:enabled:checked
+    ~ .mdc-checkbox__background {
+    background-color: #00bf6f;
+    border-color: #00bf6f;
+  }
+
+  .mdc-checkbox
+    .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not(
+      [data-indeterminate="true"]
+    )
+    ~ .mdc-checkbox__background {
+    border-color: var(--mdc-checkbox-unselected-icon-color);
+    background-color: transparent;
+    opacity: 0.4;
+  }
+
+  .mdc-checkbox .mdc-checkbox__native-control:focus ~ .mdc-checkbox__ripple {
+    opacity: 0;
+  }
+
+  .mdc-label {
+    margin: 0;
+    color: rgb(111, 111, 111);
+    padding: 0px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .mdc-checkbox {
+    padding: 10px;
+  }
+}

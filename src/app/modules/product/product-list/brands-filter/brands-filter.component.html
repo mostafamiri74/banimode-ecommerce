@@ -1,12 +1,25 @@
-<mat-card>
-  <mat-card-title>Brands Filter</mat-card-title>
-  <mat-card-content>
+<div class="py-3">
+  <span class="brand-title">برند :</span>
+  <div
+    class="d-flex flex-column brand-container"
+    [ngClass]="{ limitTextHeight: isReadMore }"
+  >
     <mat-checkbox
       *ngFor="let brand of brands"
       [(ngModel)]="selectedBrands[brand]"
       (change)="applyFilters()"
+      labelPosition="before"
     >
       {{ brand }}
     </mat-checkbox>
-  </mat-card-content>
-</mat-card>
+  </div>
+
+  <button type="button" (click)="showMore()" class="show-more-btn">
+    {{ isReadMore ? "برندهای بیشتر" : "کمتر" }}
+    <i
+      class="fa-solid"
+      [ngClass]="isReadMore ? ' fa-chevron-down' : ' fa-chevron-up'"
+    ></i>
+  </button>
+</div>
+<hr />

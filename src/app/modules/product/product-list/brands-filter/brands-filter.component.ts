@@ -9,10 +9,15 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class BrandsFilterComponent {
   @Output() brandSelected = new EventEmitter<string[]>();
 
-  brands: string[] = ['Nike', 'Adidas', 'Puma'];
+  brands: string[] = ['جوتی جینز', 'فریولی', 'ال سی من', 'ایندیگو', 'آر ان اس', 'پیرکاردین'];
   selectedBrands: { [key: string]: boolean } = {};
+  isReadMore = true;
 
   constructor(private productService: ProductService) {}
+
+  showMore() {
+    this.isReadMore = !this.isReadMore;
+  }
 
   applyFilters(): void {
     const selectedBrandKeys = Object.keys(this.selectedBrands).filter(
