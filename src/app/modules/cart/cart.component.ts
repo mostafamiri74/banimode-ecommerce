@@ -9,7 +9,9 @@ import {
   increaseQuantity,
 } from 'src/app/core/store/actions';
 import {
+  selectCartTotalPrice,
   selectProductQuantity,
+  selectProductTotalPrice,
   selectShoppingCart,
 } from 'src/app/core/store/selector';
 
@@ -21,6 +23,8 @@ import {
 export class CartComponent {
   cart: any[] = [];
 
+  totalPrice$ = this.store.pipe(select(selectCartTotalPrice));
+
   constructor(
     private productService: ProductService,
     private cartService: CartService,
@@ -31,8 +35,8 @@ export class CartComponent {
       .subscribe((data) => (this.cart = data));
   }
 
-  removeFromCart(productId: number) {
-    this.store.dispatch(RemoveFromCart({ id: productId }));
+  removeFromCart(id: number) {
+    this.store.dispatch(RemoveFromCart({ id }));
   }
 
   increaseProductQuantity(product: IProduct) {
@@ -43,7 +47,11 @@ export class CartComponent {
     this.store.dispatch(decreaseQuantity({ product }));
   }
 
-  getProductQuantity(productId: any) {
-    return this.store.pipe(select(selectProductQuantity, { productId }));
+  getProductQuantity(id: any) {
+    return this.store.pipe(select(selectProductQuantity, { id }));
+  }
+
+  getProductTotalPrice(id: number) {
+    return this.store.pipe(select(selectProductTotalPrice, { id }));
   }
 }

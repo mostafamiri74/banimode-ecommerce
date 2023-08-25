@@ -1,0 +1,33 @@
+@import "/src/styles/abstracts/mixins";
+@import "/src/styles/abstracts/colors";
+
+.price {
+  &-container {
+    transition: all 0.5s linear;
+  }
+
+  &-title {
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0px;
+    display: block;
+    line-height: 50px;
+    float: none;
+  }
+}
+
+.filter-price-btn {
+  @include button();
+  width: 140px;
+  height: 40px;
+  padding: 5px 15px;
+  display: inline-block;
+
+  &:hover {
+    transition: all 0.3s;
+    background-color: $green-color;
+  }
+}

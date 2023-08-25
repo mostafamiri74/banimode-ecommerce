@@ -11,7 +11,6 @@ import { AboutUsComponent } from './modules/about-us/about-us.component';
 import { LegalNoticeComponent } from './modules/legal-notice/legal-notice.component';
 import { ProductModule } from './modules/product/product.module';
 import { CartModule } from './modules/cart/cart.module';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { StoreModule, provideStore } from '@ngrx/store';
 import { shopReducer } from './core/store/reducer';
@@ -30,10 +29,6 @@ import { appStore, appEffects } from './core/store/store';
     ProductModule,
     CartModule,
     SwiperModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000',
-    }),
     StoreModule.forRoot({ shop: shopReducer }),
     EffectsModule.forRoot([ShopEffects]),
   ],

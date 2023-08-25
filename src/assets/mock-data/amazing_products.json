@@ -1,6 +1,6 @@
 [
   {
-    "id_product": 106720,
+    "id": 106720,
     "id_product_attribute": 708480,
     "id_color": 105,
     "product_reference": "AM-912386",
@@ -547,7 +547,7 @@
     "all_colors_count": 14
   },
   {
-    "id_product": 78735,
+    "id": 78735,
     "id_product_attribute": 517417,
     "id_color": 501,
     "product_reference": "BP-PNA8001",
@@ -802,7 +802,7 @@
     "all_colors_count": 2
   },
   {
-    "id_product": 57642,
+    "id": 57642,
     "id_product_attribute": 387717,
     "id_color": 10,
     "product_reference": "KIKI-BB2525",
@@ -1139,7 +1139,7 @@
     "all_colors_count": 6
   },
   {
-    "id_product": 34766,
+    "id": 34766,
     "id_product_attribute": 242214,
     "id_color": 10,
     "product_reference": "SI-102031110",
@@ -1395,7 +1395,7 @@
     "all_colors_count": 2
   },
   {
-    "id_product": 24052,
+    "id": 24052,
     "id_product_attribute": 179168,
     "id_color": 565,
     "product_reference": "KC51024003",
@@ -1529,7 +1529,7 @@
     "all_colors_count": 1
   },
   {
-    "id_product": 69409,
+    "id": 69409,
     "id_product_attribute": 454854,
     "id_color": 17,
     "product_reference": "ZA-14317",
@@ -1785,7 +1785,7 @@
     "all_colors_count": 3
   },
   {
-    "id_product": 69824,
+    "id": 69824,
     "id_product_attribute": 457659,
     "id_color": 1,
     "product_reference": "M06851-002",
@@ -2011,7 +2011,7 @@
     "all_colors_count": 1
   },
   {
-    "id_product": 43835,
+    "id": 43835,
     "id_product_attribute": 303905,
     "id_color": 649,
     "product_reference": "A2658",
@@ -2324,7 +2324,7 @@
     "all_colors_count": 4
   },
   {
-    "id_product": 64431,
+    "id": 64431,
     "id_product_attribute": 419278,
     "id_color": 457,
     "product_reference": "J6132-064",
@@ -2584,7 +2584,7 @@
     "all_colors_count": 2
   },
   {
-    "id_product": 67308,
+    "id": 67308,
     "id_product_attribute": 439630,
     "id_color": 8,
     "product_reference": "KA-300J064",
@@ -2866,7 +2866,7 @@
     "all_colors_count": 7
   },
   {
-    "id_product": 47009,
+    "id": 47009,
     "id_product_attribute": 326291,
     "id_color": 1177,
     "product_reference": "TL-91300",
@@ -3132,7 +3132,7 @@
     "all_colors_count": 3
   },
   {
-    "id_product": 69728,
+    "id": 69728,
     "id_product_attribute": 456984,
     "id_color": 1400,
     "product_reference": "AJ-1218-1",
@@ -3361,7 +3361,7 @@
     "all_colors_count": 2
   },
   {
-    "id_product": 21131,
+    "id": 21131,
     "id_product_attribute": 162509,
     "id_color": 457,
     "product_reference": "116920",
@@ -3700,7 +3700,7 @@
     "all_colors_count": 4
   },
   {
-    "id_product": 77300,
+    "id": 77300,
     "id_product_attribute": 506978,
     "id_color": 506,
     "product_reference": "NOA-5059",
@@ -4005,7 +4005,7 @@
     "all_colors_count": 5
   },
   {
-    "id_product": 61722,
+    "id": 61722,
     "id_product_attribute": 406130,
     "id_color": 457,
     "product_reference": "9F149",
@@ -4263,7 +4263,7 @@
     "all_colors_count": 5
   },
   {
-    "id_product": 27414,
+    "id": 27414,
     "id_product_attribute": 277997,
     "id_color": 213,
     "product_reference": "5292A",
@@ -4585,7 +4585,7 @@
     "all_colors_count": 3
   },
   {
-    "id_product": 74319,
+    "id": 74319,
     "id_product_attribute": 486803,
     "id_color": 13,
     "product_reference": "RTW022",
@@ -4807,7 +4807,7 @@
     "all_colors_count": 1
   },
   {
-    "id_product": 79487,
+    "id": 79487,
     "id_product_attribute": 520981,
     "id_color": 12,
     "product_reference": "BP-PNA1713",

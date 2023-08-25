@@ -1,3 +1,5 @@
+@import "/src/styles/abstracts/colors";
+
 .cart-product-header {
   display: flex;
   direction: rtl;
@@ -380,4 +382,100 @@ img {
 }
 .cart-product .cart-not-exist {
   display: none;
+}
+
+.cart-product:last-child .cart-product-content {
+  border-bottom: 0;
+}
+
+.confirm-cart-btn {
+  background-color: $green-color;
+  line-height: 56px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  padding: 0 1rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+.cart-footer {
+  border-radius: 10px;
+  background-color: #fafafa;
+  padding: 35px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 3rem;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  direction: rtl;
+}
+.cart-footer .coupons-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: rtl;
+  width: 65%;
+  border-left: 1px solid #e6e6e6;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 5%;
+}
+.cart-footer .cart-summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #666;
+  width: 30%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.cart-footer .cart-summary .titls {
+  text-align: right;
+  font-size: 14px;
+  margin-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 60%;
+  -ms-flex-preferred-size: 60%;
+  flex-basis: 60%;
+}
+.cart-footer .cart-summary p {
+  height: 40px;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.cart-footer .cart-summary .values {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  text-align: left;
+  font-size: 16px;
 }

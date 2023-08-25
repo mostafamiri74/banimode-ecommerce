@@ -2,12 +2,13 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
 import { ShopState } from 'src/app/core/store/reducer';
 import { ActionTypes } from 'src/app/core/store/actions';
 import { selectProducts } from 'src/app/core/store/selector';
 import { IProduct } from 'src/app/core/models/product.interface';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -20,7 +21,8 @@ export class ProductListComponent implements OnInit {
   brands = ['Brand1', 'Brand2'];
   public queryParams = new HttpParams();
 
-  page = 1;
+  currentPage = 1;
+  itemsPerPage = 9;
 
   productList$: Observable<any[]> = of([]);
   items: any[] = [];
@@ -28,7 +30,9 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private formBuilder: FormBuilder,
-    private store: Store<ShopState>
+    private store: Store<ShopState>,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.productList$ = this.store.select(selectProducts);
     // .subscribe((products) => {
@@ -37,7 +41,6 @@ export class ProductListComponent implements OnInit {
     // });
     // this.store.select(productSelector).subscribe((data: any) => (this.items = data.products));
     // this.productList$.subscribe((res) => console.log(res));
-    console.log(this.productList$);
 
     this.loadProducts();
   }
@@ -52,10 +55,11 @@ export class ProductListComponent implements OnInit {
     // });
     // this.store.dispatch(new GetItems());
 
-    this.queryParams = this.queryParams.set('page', this.page);
+    this.queryParams = this.queryParams.set('page', this.currentPage);
 
     // this.onFormChanges();
-    // this.getProductlist();
+    this.getProductlist();
+    this.getPaginatedProducts();
   }
 
   private getProductlist() {
@@ -93,8 +97,30 @@ export class ProductListComponent implements OnInit {
   }
 
   pageEvent(pageNumber: any): void {
-    this.page = pageNumber;
-    this.queryParams = this.queryParams.set('page', this.page);
-    this.getProductlist();
+    this.currentPage = pageNumber;
+    this.queryParams = this.queryParams.set('page', this.currentPage);
+    // this.getProductlist();
+
+    this.onPageChange(this.currentPage);
+  }
+
+  getPaginatedProducts(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+
+    this.productList$ = this.productList$.pipe(
+      map((productList) => productList.slice(startIndex, endIndex))
+    );
+  }
+
+  onPageChange(pageNumber: number): void {
+    // Update query parameters and trigger data fetch
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page: pageNumber },
+      queryParamsHandling: 'merge',
+    });
+
+    this.getPaginatedProducts();
   }
 }

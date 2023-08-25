@@ -1,0 +1,28 @@
+<div class="py-3">
+  <span class="price-title">قیمت :</span>
+  <div class="d-flex flex-column price-container">
+    <mat-slider [min]="minPrice" [max]="maxPrice" discrete>
+      <input [(ngModel)]="minValue" matSliderStartThumb />
+      <input [(ngModel)]="maxValue" matSliderEndThumb />
+    </mat-slider>
+
+    <section class="mt-4 text-center">
+      <mat-form-field class="w-100">
+        <mat-label>از</mat-label>
+        <input matInput type="number" [(ngModel)]="minValue" />
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>تا</mat-label>
+        <input matInput type="number" [(ngModel)]="maxValue" />
+      </mat-form-field>
+
+      <button
+        type="button"
+        class="button filter-price-btn ms-3"
+        (click)="applyFilters()"
+      >
+        اعمال قیمت
+      </button>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+@import "/src/styles/abstracts/colors";
+
+.mat-mdc-slider.mat-primary {
+  --mdc-slider-handle-color: #00bf6f;
+  --mdc-slider-focus-handle-color: #00bf6f;
+  --mdc-slider-hover-handle-color: #00bf6f;
+  --mdc-slider-active-track-color: #00bf6f;
+}

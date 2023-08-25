@@ -20,52 +20,21 @@
         </div>
 
         <div
-          class="d-flex flex-row justify-content-between align-content-center"
+          class="d-flex flex-row justify-content-between align-content-center py-4"
         >
           <h6 class="m-0">فیلتر های اعمال شده :</h6>
           <button class="remove-filters">حذف فیلترها</button>
         </div>
 
-        <!-- <div>
-          <h6>دسته بندی</h6>
-          <form [formGroup]="filterForm">
-            <div *ngFor="let category of categories; let i = index">
-              <label [for]="'category-' + category">{{ category }}</label>
-              <input
-                type="checkbox"
-                [id]="'category-' + category"
-                formArrayName="category"
-                [formControlName]="i"
-                [value]="category"
-              />
-            </div>
-
-            <div *ngFor="let brand of brands">
-              <label [for]="'brand-' + brand">{{ brand }}</label>
-              <input
-                type="checkbox"
-                [id]="'brand-' + brand"
-                [formArrayName]="brand"
-                [value]="brand"
-              />
-            </div>
-
-            <div>
-              <label for="price">Price</label>
-              <input
-                type="range"
-                id="price"
-                formControlName="price"
-                min="0"
-                max="100"
-              />
-            </div>
-          </form>
-        </div> -->
+        <div>
+          <app-categories-filter></app-categories-filter>
+          <app-brands-filter></app-brands-filter>
+          <app-prices-filter></app-prices-filter>
+        </div>
       </div>
       <div class="col-md-9 col-12">
         <app-pagination
-          [index]="page"
+          [index]="currentPage"
           (page)="pageEvent($event)"
         ></app-pagination>
         <div class="product-list-box">
@@ -143,224 +112,10 @@
             <ng-template #empty>
               <div>محصولی برای نمایش وجود ندارد.</div>
             </ng-template>
-            <!-- <div class="col-md-4 col-12 pb-3 px-3 product-list-item">
-              <a routerLink="../product-details" class="product-list__image">
-                <figure class="mb-0">
-                  <img
-                    src="/assets/img/bestsilling/1-1.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover"
-                  />
-                  <img
-                    src="/assets/img/bestsilling/1-2.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover product-list__image-hover-show"
-                  />
-                  <figcaption class="semicircular-badge">۵۵٪</figcaption>
-                </figure>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between mt-3"
-              >
-                <h4 class="product-list__brands">JootiJeans</h4>
-                <del class="product-list__lastprice">2,325,000 تومان</del>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between my-3"
-              >
-                <h4 class="product-list__name">تیشرت طرح دار مردانه جامه</h4>
-                <p class="product-list__price">4,300,000 تومان</p>
-              </a>
-              <div
-                class="product-list__product-size d-flex justify-conten-center align-items-center"
-              >
-                <a href="#"> تک سایز </a>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-12 pb-3 px-3 product-list-item">
-              <a routerLink="../product-details" class="product-list__image">
-                <figure class="mb-0">
-                  <img
-                    src="/assets/img/bestsilling/1-1.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover"
-                  />
-                  <img
-                    src="/assets/img/bestsilling/1-2.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover product-list__image-hover-show"
-                  />
-                  <figcaption class="semicircular-badge">۵۵٪</figcaption>
-                </figure>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between mt-3"
-              >
-                <h4 class="product-list__brands">JootiJeans</h4>
-                <del class="product-list__lastprice">2,325,000 تومان</del>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between my-3"
-              >
-                <h4 class="product-list__name">تیشرت طرح دار مردانه جامه</h4>
-                <p class="product-list__price">4,300,000 تومان</p>
-              </a>
-              <div
-                class="product-list__product-size d-flex justify-conten-center align-items-center"
-              >
-                <a href="#"> تک سایز </a>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-12 pb-3 px-3 product-list-item">
-              <a routerLink="../product-details" class="product-list__image">
-                <figure class="mb-0">
-                  <img
-                    src="/assets/img/bestsilling/1-1.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover"
-                  />
-                  <img
-                    src="/assets/img/bestsilling/1-2.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover product-list__image-hover-show"
-                  />
-                  <figcaption class="semicircular-badge">۵۵٪</figcaption>
-                </figure>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between mt-3"
-              >
-                <h4 class="product-list__brands">JootiJeans</h4>
-                <del class="product-list__lastprice">2,325,000 تومان</del>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between my-3"
-              >
-                <h4 class="product-list__name">تیشرت طرح دار مردانه جامه</h4>
-                <p class="product-list__price">4,300,000 تومان</p>
-              </a>
-              <div
-                class="product-list__product-size d-flex justify-conten-center align-items-center"
-              >
-                <a href="#"> تک سایز </a>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-12 pb-3 px-3 product-list-item">
-              <a routerLink="../product-details" class="product-list__image">
-                <figure class="mb-0">
-                  <img
-                    src="/assets/img/bestsilling/1-1.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover"
-                  />
-                  <img
-                    src="/assets/img/bestsilling/1-2.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover product-list__image-hover-show"
-                  />
-                  <figcaption class="semicircular-badge">۵۵٪</figcaption>
-                </figure>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between mt-3"
-              >
-                <h4 class="product-list__brands">JootiJeans</h4>
-                <del class="product-list__lastprice">2,325,000 تومان</del>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between my-3"
-              >
-                <h4 class="product-list__name">تیشرت طرح دار مردانه جامه</h4>
-                <p class="product-list__price">4,300,000 تومان</p>
-              </a>
-              <div
-                class="product-list__product-size d-flex justify-conten-center align-items-center"
-              >
-                <a href="#"> تک سایز </a>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-12 pb-3 px-3 product-list-item">
-              <a routerLink="../product-details" class="product-list__image">
-                <figure class="mb-0">
-                  <img
-                    src="/assets/img/bestsilling/1-1.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover"
-                  />
-                  <img
-                    src="/assets/img/bestsilling/1-2.jpg"
-                    alt="amazin product"
-                    width="275"
-                    height="330"
-                    title="amazin product"
-                    class="object-fit-cover product-list__image-hover-show"
-                  />
-                  <figcaption class="semicircular-badge">۵۵٪</figcaption>
-                </figure>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between mt-3"
-              >
-                <h4 class="product-list__brands">JootiJeans</h4>
-                <del class="product-list__lastprice">2,325,000 تومان</del>
-              </a>
-              <a
-                routerLink="../product-details"
-                class="d-flex justify-content-between my-3"
-              >
-                <h4 class="product-list__name">تیشرت طرح دار مردانه جامه</h4>
-                <p class="product-list__price">4,300,000 تومان</p>
-              </a>
-              <div
-                class="product-list__product-size d-flex justify-conten-center align-items-center"
-              >
-                <a href="#"> تک سایز </a>
-              </div>
-            </div> -->
           </div>
         </div>
         <app-pagination
-          [index]="page"
+          [index]="currentPage"
           (page)="pageEvent($event)"
         ></app-pagination>
       </div>
