@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { CartService } from 'src/app/core/services/cart.service';
@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 import { ActionTypes, AddToCart } from 'src/app/core/store/actions';
 import { ShopState } from 'src/app/core/store/reducer';
 // import { AddToCart, RemoveFromCart } from 'src/app/core/store/actions';
-import {
+import Swiper, {
   A11y,
   Mousewheel,
   Navigation,
@@ -17,6 +17,7 @@ import {
   Autoplay,
 } from 'swiper';
 import SwiperCore from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
@@ -35,6 +36,9 @@ export class ProductDetailsComponent {
   commentsPerLoad = 5;
   currentIndex = 0;
   disableLoadMoreButton = false;
+
+  // @ViewChild('swiperRef', { static: false }) swiperRef?: SwiperComponent;
+  thumbs: any;
 
   constructor(
     private productService: ProductService,
@@ -80,5 +84,12 @@ export class ProductDetailsComponent {
           this.disableLoadMoreButton = true;
         }
       });
+  }
+
+  thumbsSwiper: any;
+  setThumbsSwiper([swiper]: any) {
+    console.log(swiper);
+
+    this.thumbsSwiper = swiper;
   }
 }

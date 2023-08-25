@@ -20,7 +20,7 @@
         </div>
 
         <div
-          class="d-flex flex-row justify-content-between align-content-center my-4"
+          class="d-flex flex-row justify-content-between align-content-center py-4"
         >
           <h6 class="m-0">فیلتر های اعمال شده :</h6>
           <button class="remove-filters">حذف فیلترها</button>
@@ -34,7 +34,7 @@
       </div>
       <div class="col-md-9 col-12">
         <app-pagination
-          [index]="page"
+          [index]="currentPage"
           (page)="pageEvent($event)"
         ></app-pagination>
         <div class="product-list-box">
@@ -115,7 +115,7 @@
           </div>
         </div>
         <app-pagination
-          [index]="page"
+          [index]="currentPage"
           (page)="pageEvent($event)"
         ></app-pagination>
       </div>
