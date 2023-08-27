@@ -36,10 +36,13 @@ export class CategoriesFilterComponent {
       queryParams['category'] = selectedCategoryKeys.join(',');
     }
 
-    this.productService
-      .getFilteredProducts(queryParams)
-      .subscribe((filteredProducts) => {
-        // Handle filtered products
-      });
+    this.productService.getFilteredProducts(queryParams).subscribe({
+      next: (data) => {
+        // this.filteredProductsEvent.emit(filteredProducts);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

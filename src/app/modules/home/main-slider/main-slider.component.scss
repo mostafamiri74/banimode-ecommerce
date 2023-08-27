@@ -28,44 +28,11 @@
     right: 10px;
   }
 }
+
 .swiper-left-top:hover {
   .swiper-button-next,
   .swiper-button-prev {
     opacity: 1;
-  }
-}
-
-.swiper-pagination {
-  bottom: 35px;
-
-  &-bullet {
-    opacity: 0.5;
-    width: 8px;
-    height: 8px;
-
-    &-active {
-      background-color: #fff;
-      width: 16px;
-      height: 6px;
-      border-radius: 20px;
-    }
-  }
-}
-
-.swiper-pagination {
-  bottom: 35px;
-
-  &-bullet {
-    opacity: 0.5;
-    width: 8px;
-    height: 8px;
-
-    &-active {
-      background-color: #fff;
-      width: 16px;
-      height: 6px;
-      border-radius: 20px;
-    }
   }
 }
 

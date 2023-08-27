@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
-import {
-  A11y,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  SwiperOptions,
-  Scrollbar,
-  Autoplay,
-} from 'swiper';
+import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
@@ -29,8 +21,13 @@ export class HomeBestsillingComponent {
   }
 
   private getProducts() {
-    this.productService.getBestSillingProduct().subscribe((res: any[]) => {
-      this.productList$ = of(res);
+    this.productService.getBestSillingProduct().subscribe({
+      next: (product) => {
+        this.productList$ = of(product);
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 }

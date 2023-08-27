@@ -13,7 +13,6 @@ export class PricesFilterComponent {
 
   minValue: number = this.minPrice;
   maxValue: number = this.maxPrice;
-  // selectedPriceRange: [number, number] = [this.minPrice, this.maxPrice];
 
   constructor(private productService: ProductService) {}
 
@@ -23,10 +22,13 @@ export class PricesFilterComponent {
       maxPrice: this.maxValue,
     };
 
-    this.productService
-      .getFilteredProducts(queryParams)
-      .subscribe((filteredProducts) => {
+    this.productService.getFilteredProducts(queryParams).subscribe({
+      next: (data) => {
         // this.filteredProductsEvent.emit(filteredProducts);
-      });
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

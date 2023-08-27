@@ -12,7 +12,6 @@ export class CartService {
 
   public addProduct(product: any) {
     this.products.push(product);
-
     this.cartItems$.next(this.products);
   }
 }

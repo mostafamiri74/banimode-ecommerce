@@ -84,10 +84,6 @@
                         class="add"
                         (click)="increaseProductQuantity(product)"
                       >
-                        <!-- <img
-                    src="/themes/new/assets/images/icon/add.svg"
-                    alt="add"
-                  /> -->
                         <i class="fa-solid fa-plus"></i>
                       </button>
                       <input
@@ -95,15 +91,10 @@
                         [value]="getProductQuantity(product.id) | async"
                         readonly=""
                       />
-                      <!-- <p>{{ getProductQuantity(product.id) | async }}</p> -->
                       <button
                         class="reduce"
                         (click)="decreaseProductQuantity(product)"
                       >
-                        <!-- <img
-                    src="/themes/new/assets/images/icon/minus.svg"
-                    alt="reduce"
-                  /> -->
                         <i class="fa-solid fa-minus"></i>
                       </button>
                     </div>
@@ -113,7 +104,6 @@
                       <span>{{ getProductTotalPrice(product.id) | async }}</span
                       ><span class="toman"> تومان</span>
                     </div>
-                    <!-- <div class="cart-not-exist">ناموجود</div> -->
                   </div>
                 </div>
               </div>

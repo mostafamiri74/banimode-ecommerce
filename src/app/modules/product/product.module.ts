@@ -8,6 +8,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CategoriesFilterComponent } from './product-list/categories-filter/categories-filter.component';
 import { BrandsFilterComponent } from './product-list/brands-filter/brands-filter.component';
 import { PricesFilterComponent } from './product-list/prices-filter/prices-filter.component';
+import { GalleryModule } from 'ng-gallery';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { PricesFilterComponent } from './product-list/prices-filter/prices-filte
     BrandsFilterComponent,
     PricesFilterComponent,
   ],
-  imports: [CommonModule, ProductRoutingModule, SharedModule],
+  imports: [CommonModule, ProductRoutingModule, SharedModule, GalleryModule],
 })
 export class ProductModule {}

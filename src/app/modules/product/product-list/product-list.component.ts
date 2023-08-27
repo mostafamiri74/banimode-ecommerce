@@ -16,9 +16,6 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  filterForm!: FormGroup;
-  categories = ['C', 'Category2'];
-  brands = ['Brand1', 'Brand2'];
   public queryParams = new HttpParams();
 
   currentPage = 1;
@@ -35,12 +32,6 @@ export class ProductListComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.productList$ = this.store.select(selectProducts);
-    // .subscribe((products) => {
-    //   this.productList$ = of(products);
-    //   console.log(this.productList$);
-    // });
-    // this.store.select(productSelector).subscribe((data: any) => (this.items = data.products));
-    // this.productList$.subscribe((res) => console.log(res));
 
     this.loadProducts();
   }
@@ -50,44 +41,14 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.filterForm = this.formBuilder.group({
-    //   category: this.formBuilder.array(this.createCheckboxes(this.categories)),
-    // });
-    // this.store.dispatch(new GetItems());
-
     this.queryParams = this.queryParams.set('page', this.currentPage);
 
-    // this.onFormChanges();
     this.getProductlist();
     this.getPaginatedProducts();
   }
 
   private getProductlist() {
-    this.productService
-      .getProductList(this.queryParams)
-      .subscribe((res: any[]) => {
-        this.productList$ = of(res);
-      });
-  }
-
-  get category(): FormArray {
-    return this.filterForm.get('category') as FormArray;
-  }
-
-  createCheckboxes(options: string[]): any {
-    options.forEach(() => {
-      this.category.push(this.formBuilder.control(false));
-    });
-    // return options.map(() => this.formBuilder.control(false));
-  }
-
-  onFormChanges() {
-    // Subscribe to form value changes to send the selected filters as query params
-    this.filterForm.valueChanges.subscribe((formValue) => {
-      // Call a method to send the formValue to the server as query params
-
-      this.sendFiltersToServer(formValue);
-    });
+    this.productList$ = this.productService.getProductList(this.queryParams);
   }
 
   sendFiltersToServer(formValue: any) {
@@ -99,7 +60,6 @@ export class ProductListComponent implements OnInit {
   pageEvent(pageNumber: any): void {
     this.currentPage = pageNumber;
     this.queryParams = this.queryParams.set('page', this.currentPage);
-    // this.getProductlist();
 
     this.onPageChange(this.currentPage);
   }

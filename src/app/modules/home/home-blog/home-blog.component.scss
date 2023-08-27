@@ -22,14 +22,6 @@
             font-size: 23px;
           }
         }
-
-        .swiper-button-next {
-          left: -6px;
-        }
-
-        .swiper-button-prev {
-          right: -6px;
-        }
       }
     }
 
@@ -49,10 +41,7 @@
           width: 100%;
           white-space: nowrap;
           overflow: hidden;
-          -o-text-overflow: ellipsis;
           text-overflow: ellipsis;
-          -webkit-transition: 0.2s all;
-          -o-transition: 0.2s all;
           transition: 0.2s all;
           margin-top: 30px;
         }
