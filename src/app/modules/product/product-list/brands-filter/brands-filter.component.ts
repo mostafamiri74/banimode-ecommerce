@@ -9,7 +9,14 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class BrandsFilterComponent {
   @Output() brandSelected = new EventEmitter<string[]>();
 
-  brands: string[] = ['جوتی جینز', 'فریولی', 'ال سی من', 'ایندیگو', 'آر ان اس', 'پیرکاردین'];
+  brands: string[] = [
+    'جوتی جینز',
+    'فریولی',
+    'ال سی من',
+    'ایندیگو',
+    'آر ان اس',
+    'پیرکاردین',
+  ];
   selectedBrands: { [key: string]: boolean } = {};
   isReadMore = true;
 
@@ -29,10 +36,13 @@ export class BrandsFilterComponent {
       queryParams['brand'] = selectedBrandKeys.join(',');
     }
 
-    this.productService
-      .getFilteredProducts(queryParams)
-      .subscribe((filteredProducts) => {
-        // Handle filtered products
-      });
+    this.productService.getFilteredProducts(queryParams).subscribe({
+      next: (data) => {
+        // this.filteredProductsEvent.emit(filteredProducts);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

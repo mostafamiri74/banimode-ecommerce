@@ -25,14 +25,15 @@ export class CartComponent {
 
   totalPrice$ = this.store.pipe(select(selectCartTotalPrice));
 
-  constructor(
-    private productService: ProductService,
-    private cartService: CartService,
-    private store: Store<{ items: []; cart: [] }>
-  ) {
-    this.store
-      .pipe(select(selectShoppingCart))
-      .subscribe((data) => (this.cart = data));
+  constructor(private store: Store<{ items: []; cart: [] }>) {
+    this.store.pipe(select(selectShoppingCart)).subscribe({
+      next: (product) => {
+        this.cart = product;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   removeFromCart(id: number) {

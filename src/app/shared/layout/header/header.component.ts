@@ -17,12 +17,16 @@ export class HeaderComponent {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
     private store: Store<{ items: []; cart: [] }>
   ) {
-    this.store
-      .pipe(select(selectShoppingCart))
-      .subscribe((data) => (this.cart = data));
+    this.store.pipe(select(selectShoppingCart)).subscribe({
+      next: (data) => {
+        this.cart = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   ngOnInit(): void {
@@ -34,8 +38,13 @@ export class HeaderComponent {
           this.productService.getAmazingProduct()
         )
       )
-      .subscribe((res) => {
-        this.filterProduct = res;
+      .subscribe({
+        next: (res) => {
+          this.filterProduct = res;
+        },
+        error: (error) => {
+          console.log(error);
+        },
       });
   }
 }

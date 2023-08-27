@@ -1,15 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
-import {
-  A11y,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  SwiperOptions,
-  Scrollbar,
-  Autoplay,
-} from 'swiper';
+import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
@@ -30,8 +22,6 @@ export class HomeAmazingComponent {
   }
 
   private getProducts() {
-    this.productService.getAmazingProduct().subscribe((res: any[]) => {
-      this.productList$ = of(res);
-    });
+    this.productList$ = this.productService.getAmazingProduct();
   }
 }
