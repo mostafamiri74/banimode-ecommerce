@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { debounceTime, fromEvent, map, switchMap } from 'rxjs';
+import { ICartProduct } from 'src/app/core/models/cart.interface';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { selectShoppingCart } from 'src/app/core/store/selector';
@@ -13,7 +14,7 @@ import { selectShoppingCart } from 'src/app/core/store/selector';
 export class HeaderComponent {
   @ViewChild('search', { static: true }) search!: ElementRef;
   filterProduct!: any[];
-  cart: any[] = [];
+  cart: ICartProduct[] = [];
 
   constructor(
     private productService: ProductService,

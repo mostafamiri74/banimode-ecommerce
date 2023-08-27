@@ -1,6 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  IAmazingProduct,
+  IBestSillingProduct,
+  IProduct,
+} from '../models/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +15,20 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  public getAmazingProduct(): Observable<any> {
-    return this.http.get<any>('/assets/mock-data/amazing_products.json');
+  public getAmazingProduct(): Observable<IAmazingProduct[]> {
+    return this.http.get<IAmazingProduct[]>(
+      '/assets/mock-data/amazing_products.json'
+    );
   }
 
-  public getBestSillingProduct(): Observable<any> {
-    return this.http.get<any>('/assets/mock-data/best_silling_products.json');
+  public getBestSillingProduct(): Observable<IBestSillingProduct[]> {
+    return this.http.get<IBestSillingProduct[]>(
+      '/assets/mock-data/best_silling_products.json'
+    );
   }
 
-  public getProductList(queryParams?: HttpParams): Observable<any> {
-    return this.http.get<any>('/assets/mock-data/product_list.json', {
+  public getProductList(queryParams?: HttpParams): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>('/assets/mock-data/product_list.json', {
       params: queryParams,
     });
   }
@@ -30,7 +39,7 @@ export class ProductService {
 
   getFilteredProducts(params: {
     [key: string]: string | number;
-  }): Observable<any> {
+  }): Observable<IProduct[]> {
     console.log(this.queryParams);
 
     for (const key in params) {
@@ -39,7 +48,7 @@ export class ProductService {
       }
     }
 
-    return this.http.get('/assets/mock-data/product_list.json', {
+    return this.http.get<IProduct[]>('/assets/mock-data/product_list.json', {
       params: this.queryParams,
     });
   }

@@ -22,7 +22,7 @@
                       <span class="overlay"></span>
                       <img
                         [src]="product.images.large_default[0]"
-                        [alt]="product.product_manufacturer_fa_name"
+                        [alt]="product.product_manufacturer_en_name"
                       />
                     </a>
                     <button
@@ -37,7 +37,7 @@
                 <div class="cart-product-content">
                   <div class="cart-product-details">
                     <p class="title">
-                      <span>{{ product.product_manufacturer_fa_name }}</span>
+                      <span>{{ product.product_manufacturer_en_name }}</span>
                     </p>
                     <a
                       href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
@@ -54,7 +54,7 @@
                     </div>
                     <div class="product-code">
                       <span>کد محصول:</span
-                      ><span>{{ product.reference | number }}</span>
+                      ><span>{{ product.id | number }}</span>
                     </div>
                   </div>
                   <div class="cart-product-price have-discount">

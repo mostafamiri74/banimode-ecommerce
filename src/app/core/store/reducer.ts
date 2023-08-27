@@ -8,10 +8,11 @@ import {
   decreaseQuantity,
 } from './actions';
 import { IProduct } from '../models/product.interface';
+import { ICartProduct } from '../models/cart.interface';
 
 export interface ShopState {
   products: IProduct[];
-  cart: any[];
+  cart: ICartProduct[];
 }
 
 export const initialState: ShopState = {
@@ -23,7 +24,6 @@ export const shopReducer = createReducer(
   initialState,
 
   on(AddToCart, (state, { product }) => {
-    // product.id = 1;
     let productCopy = { ...product, quantity: 1 };
     return {
       ...state,

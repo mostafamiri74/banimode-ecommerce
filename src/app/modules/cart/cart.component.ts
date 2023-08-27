@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { IProduct } from 'src/app/core/models/product.interface';
-import { CartService } from 'src/app/core/services/cart.service';
-import { ProductService } from 'src/app/core/services/product.service';
+import { ICartProduct } from 'src/app/core/models/cart.interface';
 import {
   RemoveFromCart,
   decreaseQuantity,
@@ -21,7 +19,7 @@ import {
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  cart: any[] = [];
+  cart: ICartProduct[] = [];
 
   totalPrice$ = this.store.pipe(select(selectCartTotalPrice));
 
@@ -40,15 +38,15 @@ export class CartComponent {
     this.store.dispatch(RemoveFromCart({ id }));
   }
 
-  increaseProductQuantity(product: IProduct) {
+  increaseProductQuantity(product: ICartProduct) {
     this.store.dispatch(increaseQuantity({ product }));
   }
 
-  decreaseProductQuantity(product: IProduct) {
+  decreaseProductQuantity(product: ICartProduct) {
     this.store.dispatch(decreaseQuantity({ product }));
   }
 
-  getProductQuantity(id: any) {
+  getProductQuantity(id: number) {
     return this.store.pipe(select(selectProductQuantity, { id }));
   }
 

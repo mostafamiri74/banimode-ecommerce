@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { IProduct } from '../models/product.interface';
+import { ICartProduct } from '../models/cart.interface';
 
 export enum ActionTypes {
   Add = '[Product] Add to cart',
@@ -12,7 +13,7 @@ export enum ActionTypes {
 
 export const AddToCart = createAction(
   ActionTypes.Add,
-  props<{ product: any }>()
+  props<{ product: IProduct }>()
 );
 
 export const RemoveFromCart = createAction(
@@ -22,19 +23,19 @@ export const RemoveFromCart = createAction(
 
 export const GetItems = createAction(
   ActionTypes.GetItems,
-  props<{ product: any[] }>()
+  props<{ product: ICartProduct[] }>()
 );
 
 export const LoadSuccess = createAction(
   ActionTypes.LoadSuccess,
-  props<{ product: any[] }>()
+  props<{ product: ICartProduct[] }>()
 );
 
 export const increaseQuantity = createAction(
   ActionTypes.increaseQuantity,
-  props<{ product: any }>()
+  props<{ product: ICartProduct }>()
 );
 export const decreaseQuantity = createAction(
   ActionTypes.decreaseQuantity,
-  props<{ product: any }>()
+  props<{ product: ICartProduct }>()
 );

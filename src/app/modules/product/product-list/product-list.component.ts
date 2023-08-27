@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, map, of } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
@@ -8,7 +8,7 @@ import { ShopState } from 'src/app/core/store/reducer';
 import { ActionTypes } from 'src/app/core/store/actions';
 import { selectProducts } from 'src/app/core/store/selector';
 import { IProduct } from 'src/app/core/models/product.interface';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   currentPage = 1;
   itemsPerPage = 9;
 
-  productList$: Observable<any[]> = of([]);
+  productList$: Observable<IProduct[]> = of([]);
   items: any[] = [];
 
   constructor(
@@ -57,7 +57,7 @@ export class ProductListComponent implements OnInit {
     console.log(formValue);
   }
 
-  pageEvent(pageNumber: any): void {
+  pageEvent(pageNumber: number): void {
     this.currentPage = pageNumber;
     this.queryParams = this.queryParams.set('page', this.currentPage);
 
