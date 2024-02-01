@@ -20,7 +20,7 @@ const routes: Routes = [
           import('./modules/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'product',
+        path: 'products/:category',
         loadChildren: () =>
           import('./modules/product/product.module').then(
             (m) => m.ProductModule
