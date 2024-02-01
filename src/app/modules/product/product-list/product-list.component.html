@@ -44,7 +44,7 @@
                 *ngFor="let product of productList$ | async"
                 class="col-md-4 col-12 pb-4 px-3 product-list-item"
               >
-                <a routerLink="../product-details" class="product-list__image">
+                <a [routerLink]="[product.id]" class="product-list__image">
                   <figure class="mb-0">
                     <img
                       [src]="product.images.large_default[0]"
@@ -73,7 +73,7 @@
                   </figure>
                 </a>
                 <a
-                  routerLink="../product-details"
+                  [routerLink]="[product.id]"
                   class="d-flex justify-content-between mt-3"
                 >
                   <h4 class="product-list__brands">
@@ -86,7 +86,7 @@
                   >
                 </a>
                 <a
-                  routerLink="../product-details"
+                  [routerLink]="[product.id]"
                   class="d-flex justify-content-between my-3"
                 >
                   <h4 class="product-list__name">{{ product.product_name }}</h4>
