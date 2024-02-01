@@ -7,14 +7,14 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'product-list',
-  },
-  {
-    path: 'product-list',
     component: ProductListComponent,
   },
+  // {
+  //   path: 'product-list',s
+  //   component: ProductListComponent,
+  // },
   {
-    path: 'product-details',
+    path: ':id',
     component: ProductDetailsComponent,
   },
 ];
