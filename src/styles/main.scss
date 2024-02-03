@@ -17,23 +17,16 @@
 @import "./components/am-components/am-checkbox";
 @import "./components/am-components/am-slider";
 
-// @import "./components/progress-bar";
-// @import "./components/three-dots";
-// @import "./components/scrollbar";
-// @import "./components/dropdown";
-// @import "./components/borders";
-// @import "./components/buttons";
-// @import "./components/modal";
-// @import "./components/gaps";
-// @import "./components/table";
-
 @import "./pages/installed-packages";
+
+html, body { height: 100%; }
 
 body {
   font-family: "iranyekan";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  word-spacing: 0.2rem;
 }
 
 ul,
