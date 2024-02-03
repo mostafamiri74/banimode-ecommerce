@@ -39,39 +39,34 @@
                     <p class="title">
                       <span>{{ product.product_manufacturer_fa_name }}</span>
                     </p>
-                    <a
-                      href="https://www.banimode.com/BM-91064/پیراهن-مردانه-هوگرو-hugero-کد-10266/10.html#/مشکی"
-                      target="_blank"
-                      ><p>{{ product.product_manufacturer_en_name }}</p></a
-                    >
                     <div class="size-color">
                       <div class="item size">
-                        <span>سایز:</span><span>L</span>
+                        <span>سایز:</span><span class='cart-product-size'>L</span>
                       </div>
                       <div class="item color">
-                        <span>رنگ:</span><span>مشکی</span>
+                        <span>رنگ:</span><span class="cart-product-color">مشکی</span>
                       </div>
                     </div>
                     <div class="product-code">
                       <span>کد محصول:</span
-                      ><span>{{ product.reference | number }}</span>
+                      ><span class="cart-product-id font-number">{{ product.reference | number }}</span>
                     </div>
                   </div>
                   <div class="cart-product-price have-discount">
                     <div class="original">
-                      <span>{{ product.product_price | number }}</span
-                      ><span class="toman"> تومان</span>
+                      <span class='font-number'>{{ product.product_price | number }}</span
+                      ><span class="toman d-flex align-items-center"> تومان</span>
                     </div>
                     <div class="discount">
                       <div class="discount-value">
-                        <span>{{
-                          product.product_specific_price.discount_percent
-                            | number
+                        <span class="font-number">{{
+                         (product.product_specific_price.discount_percent
+                            | number) + ' %'
                         }}</span
-                        ><span class="pr-2">تخفیف </span>
+                        ><span class="mx-2">تخفیف </span>
                       </div>
                       <div class="discount-price">
-                        <span>{{
+                        <span class="font-number">{{
                           product.product_specific_price.specific_price | number
                         }}</span
                         ><span class="toman"> تومان</span>
@@ -79,9 +74,9 @@
                     </div>
                   </div>
                   <div class="cart-quantity-selector">
-                    <div class="quantity-selector-box">
+                    <div class="quantity-selector-box align-items-center">
                       <button
-                        class="add"
+                        class="add align-items-center"
                         (click)="increaseProductQuantity(product)"
                       >
                         <i class="fa-solid fa-plus"></i>
@@ -90,9 +85,10 @@
                         type="number"
                         [value]="getProductQuantity(product.id) | async"
                         readonly=""
+                        class="font-number"
                       />
                       <button
-                        class="reduce"
+                        class="reduce align-items-center"
                         (click)="decreaseProductQuantity(product)"
                       >
                         <i class="fa-solid fa-minus"></i>
@@ -101,8 +97,8 @@
                   </div>
                   <div class="cart-product-price green">
                     <div class="original">
-                      <span>{{ getProductTotalPrice(product.id) | async }}</span
-                      ><span class="toman"> تومان</span>
+                      <span class="font-number">{{ getProductTotalPrice(product.id) | async | number }}</span
+                      ><span class="toman d-flex align-items-center"> تومان</span>
                     </div>
                   </div>
                 </div>
@@ -144,11 +140,11 @@
       </ng-template>
 
       <ng-template #emptyCart>
-        <div class="text-center">
+        <div class="text-center py-5">
           <div class="mb-4">
             <img src="/assets/img/cart/thank-unsucess.svg" />
           </div>
-          <p class="title">سبد خرید شما خالی است</p>
+          <h5 class="title">سبد خرید شما خالی است.</h5>
         </div>
       </ng-template>
     </div>
