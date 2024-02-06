@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, find, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +24,9 @@ export class ProductService {
     });
   }
 
-  public getProductDetails(): Observable<any> {
-    return this.http.get<any>('/assets/mock-data/product_details.json');
+  public getProductDetails(id: number): Observable<any> {    
+      return this.http.get<any>('/assets/mock-data/product_list.json')
+        .pipe(map(products => products.find((product:any) => product.id === id)));
   }
 
   getFilteredProducts(params: {

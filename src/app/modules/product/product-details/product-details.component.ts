@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { CartService } from 'src/app/core/services/cart.service';
@@ -7,15 +7,25 @@ import { ProductService } from 'src/app/core/services/product.service';
 import { AddToCart } from 'src/app/core/store/actions';
 import { ShopState } from 'src/app/core/store/reducer';
 import { GalleryItem, ImageItem, Gallery } from 'ng-gallery';
+import { ActivatedRoute } from '@angular/router'
+import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
+import SwiperCore from 'swiper';
 
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
+  
+  id!: any;
+
   product$ = new Observable<any>();
   public product!: any;
+
+  similarProduct$ = new Observable<any>();
+
   inCart = false;
 
   totalComments: number = 0;
@@ -44,17 +54,22 @@ export class ProductDetailsComponent {
       previewUrl: 'https://preview.ibb.co/kZGsLm/img8.jpg',
     },
   ];
+
   constructor(
     private productService: ProductService,
     private cartService: CartService,
     private commentService: CommentService,
     private store: Store<ShopState>,
-    public gallery: Gallery
+    public gallery: Gallery,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.id = Number(this.route.snapshot.paramMap.get('id')) ;
+
     this.getProductDetails();
     this.getTotalComments();
+    this.getSimilarProducts();
 
     this.items = this.data.map(
       (item) => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl })
@@ -62,10 +77,21 @@ export class ProductDetailsComponent {
   }
 
   private getProductDetails() {
-    this.productService.getProductDetails().subscribe({
+    this.productService.getProductDetails(this.id).subscribe({
       next: (productDetails) => {
         this.product$ = of(productDetails);
         this.product = productDetails;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  private getSimilarProducts() {
+    this.productService.getBestSillingProduct().subscribe({
+      next: (product) => {
+        this.similarProduct$ = of(product);
       },
       error: (error) => {
         console.log(error);
