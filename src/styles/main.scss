@@ -1,13 +1,9 @@
-@use "./pages/_global.scss" as globalStyles;
-
 @import "swiper/scss";
 @import "swiper/scss/navigation";
 @import "swiper/scss/pagination";
 @import "swiper/scss/autoplay";
 //@use './components/_buttons.scss' as buttonStyles;
 
-@import "./abstracts/animations";
-@import "./abstracts/variables";
 @import "./abstracts/mixins";
 @import "./abstracts/colors";
 
@@ -17,7 +13,6 @@
 @import "./components/am-components/am-checkbox";
 @import "./components/am-components/am-slider";
 
-@import "./pages/installed-packages";
 
 html, body { height: 100%; }
 
