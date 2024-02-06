@@ -3,7 +3,7 @@
   <li (click)="navigateToPage(index - 1)">صفحه قبل</li>
   <li
     *ngFor="let page of pagination.pages; trackBy: trackByFn"
-    class="paginator-number"
+    class="paginator-number font-number"
     [class.active]="page === pagination.index"
     (click)="navigateToPage(page)"
   >
