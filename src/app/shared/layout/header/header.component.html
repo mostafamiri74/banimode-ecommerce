@@ -20,20 +20,23 @@
       <div
         class="col-md-3 col-12 d-flex justify-content-start align-items-center"
       >
-        <a routerLink="/cart" id="basket-icon">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <span *ngIf="cart.length > 0" class="cart-btn-count">{{
-            cart.length
-          }}</span>
-        </a>
+        
         <button
           type="button"
-          class="button btn-login ms-3"
+          class="button btn-login"
           data-bs-toggle="modal"
           data-bs-target="#loginModal"
         >
           ورود / عضویت
         </button>
+
+        <a routerLink="/cart" id="basket-icon" class="mx-4">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span *ngIf="cart.length > 0" class="cart-btn-count">{{
+            cart.length
+          }}</span>
+        </a>
+
         <!--Login Modal -->
         <div
           class="modal fade"
@@ -107,7 +110,7 @@
         <!--Login Modal -->
       </div>
 
-      <!-- Modal -->
+      <!-- Start Modal -->
       <div
         class="modal fade"
         id="SMSModal"
@@ -184,6 +187,8 @@
           </div>
         </div>
       </div>
+      <!-- End Modal -->
+
       <div class="col-md-6 col-12">
         <div class="search-box position-relative">
           <input
@@ -201,8 +206,8 @@
           </button>
         </div>
       </div>
-      <div class="col-md-3 col-12">
-        <a routerLink="/home">
+      <div class="col-md-3 col-12 text-start">
+        <a routerLink="/home" class="d-inline-block">
           <figure class="m-0 text-end">
             <img
               src="/assets/img/banilogo.svg"
