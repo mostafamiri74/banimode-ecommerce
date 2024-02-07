@@ -1,10 +1,11 @@
 <section class="product-list mt-3 mb-5">
   <div class="container">
-    <div class="my-4">
-      <h3>ساعت</h3>
-    </div>
     <div class="row">
       <div class="col-md-3 col-12 product-filter-sidebar">
+        <div class="my-4">
+          <h3>ساعت</h3>
+        </div>
+        
         <div class="search-box position-relative">
           <input
             type="search"
@@ -42,7 +43,7 @@
             <ng-container *ngIf="productList$ | async; else empty">
               <div
                 *ngFor="let product of productList$ | async"
-                class="col-md-4 col-12 pb-4 px-3 product-list-item"
+                class="col-md-4 col-12 px-3 product-list-item"
               >
                 <a [routerLink]="[product.id]" class="product-list__image">
                   <figure class="mb-0">

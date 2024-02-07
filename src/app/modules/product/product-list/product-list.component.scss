@@ -23,6 +23,8 @@
   }
 
   &-item {
+    padding-bottom: 2.5rem;
+
     &:hover {
       .product-list__image-hover-show {
         opacity: 1;
@@ -54,7 +56,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      width: 100%;
+      width: 98%;
       height: 100%;
       background-color: rgba(111, 115, 119, 0.07);
       border-radius: 8px;
@@ -80,7 +82,7 @@
 
       .semicircular-badge {
         @extend .cyrcle-badge;
-        left: 0;
+        left: 6px;
         height: 30px;
         line-height: 2;
         border-radius: 0 25px 25px 0;
