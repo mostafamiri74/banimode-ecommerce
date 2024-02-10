@@ -25,7 +25,7 @@ export class PaginationComponent {
   @Output() page: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
-    this.maxPages = Math.ceil(this.totalCount / this.pageSize);
+    this.maxPages = Math.ceil(this.totalCount / this.pageSize) - 1;
   }
 
   get pagination(): IPagination {

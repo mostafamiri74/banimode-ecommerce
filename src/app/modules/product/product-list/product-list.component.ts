@@ -2,7 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Observable, map, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
 import { ShopState } from 'src/app/core/store/reducer';
 import { ActionTypes } from 'src/app/core/store/actions';
@@ -21,7 +21,9 @@ export class ProductListComponent implements OnInit {
   currentPage = 1;
   itemsPerPage = 9;
 
-  productList$: Observable<any[]> = of([]);
+  allProduct$: Observable<any[]> = of([]);
+  productListPerPage$: Observable<any[]> = of([]);
+
   items: any[] = [];
 
   constructor(
@@ -31,7 +33,7 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.productList$ = this.store.select(selectProducts);
+    this.allProduct$ = this.store.select(selectProducts);
 
     this.loadProducts();
   }
@@ -48,7 +50,7 @@ export class ProductListComponent implements OnInit {
   }
 
   private getProductlist() {
-    this.productList$ = this.productService.getProductList(this.queryParams);
+    this.allProduct$ = this.productService.getProductList(this.queryParams);
   }
 
   sendFiltersToServer(formValue: any) {
@@ -64,15 +66,6 @@ export class ProductListComponent implements OnInit {
     this.onPageChange(this.currentPage);
   }
 
-  getPaginatedProducts(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-
-    this.productList$ = this.productList$.pipe(
-      map((productList) => productList.slice(startIndex, endIndex))
-    );
-  }
-
   onPageChange(pageNumber: number): void {
     // Update query parameters and trigger data fetch
     this.router.navigate([], {
@@ -82,5 +75,15 @@ export class ProductListComponent implements OnInit {
     });
 
     this.getPaginatedProducts();
+  }
+
+  getPaginatedProducts(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+
+    this.productListPerPage$ = this.allProduct$.pipe(
+      map((productList) => productList.slice(startIndex, endIndex)),tap(x => console.log(x)
+      )
+    );
   }
 }

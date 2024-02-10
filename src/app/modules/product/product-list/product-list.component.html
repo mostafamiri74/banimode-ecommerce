@@ -36,13 +36,14 @@
       <div class="col-md-9 col-12">
         <app-pagination
           [index]="currentPage"
+          [totalCount]="(allProduct$ | async)!.length"
           (page)="pageEvent($event)"
         ></app-pagination>
         <div class="product-list-box">
           <div class="row">
-            <ng-container *ngIf="productList$ | async; else empty">
+            <ng-container *ngIf="productListPerPage$ | async; else empty">
               <div
-                *ngFor="let product of productList$ | async"
+                *ngFor="let product of productListPerPage$ | async"
                 class="col-md-4 col-12 px-3 product-list-item"
               >
                 <a [routerLink]="[product.id]" class="product-list__image">
@@ -117,6 +118,7 @@
         </div>
         <app-pagination
           [index]="currentPage"
+          [totalCount]="(allProduct$ | async)!.length"
           (page)="pageEvent($event)"
         ></app-pagination>
       </div>
