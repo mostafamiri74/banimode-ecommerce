@@ -11,6 +11,7 @@ export interface IProduct {
   product_manufacturer_en_name: string;
   product_manufacturer_id: number;
   product_manufacturer_slug: string;
+  specific_price: number;
   product_specific_price: {
     specific_price: number;
     discount_amount: number;

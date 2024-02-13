@@ -21,7 +21,7 @@
                     >
                       <span class="overlay"></span>
                       <img
-                        [src]="product.images.large_default[0]"
+                        [src]="product.large_default[0]"
                         [alt]="product.product_manufacturer_fa_name"
                       />
                     </a>
@@ -37,37 +37,44 @@
                 <div class="cart-product-content">
                   <div class="cart-product-details">
                     <p class="title">
-                      <span>{{ product.product_manufacturer_fa_name }}</span>
+                      <span>{{ product.product_name }}</span>
                     </p>
                     <div class="size-color">
                       <div class="item size">
-                        <span>سایز:</span><span class='cart-product-size'>L</span>
+                        <span>سایز:</span
+                        ><span class="cart-product-size">L</span>
                       </div>
                       <div class="item color">
-                        <span>رنگ:</span><span class="cart-product-color">مشکی</span>
+                        <span>رنگ:</span
+                        ><span class="cart-product-color">مشکی</span>
                       </div>
                     </div>
                     <div class="product-code">
                       <span>کد محصول:</span
-                      ><span class="cart-product-id font-number">{{ product.reference | number }}</span>
+                      ><span class="cart-product-id font-number">{{
+                        product.reference | number
+                      }}</span>
                     </div>
                   </div>
                   <div class="cart-product-price have-discount">
                     <div class="original">
-                      <span class='font-number'>{{ product.product_price | number }}</span
-                      ><span class="toman d-flex align-items-center"> تومان</span>
+                      <span class="font-number">{{
+                        product!.product_price | number
+                      }}</span
+                      ><span class="toman d-flex align-items-center">
+                        تومان</span
+                      >
                     </div>
                     <div class="discount">
                       <div class="discount-value">
                         <span class="font-number">{{
-                         (product.product_specific_price.discount_percent
-                            | number) + ' %'
+                          (product!.discount_percent | number) + " %"
                         }}</span
                         ><span class="mx-2">تخفیف </span>
                       </div>
                       <div class="discount-price">
                         <span class="font-number">{{
-                          product.product_specific_price.specific_price | number
+                          product!.specific_price | number
                         }}</span
                         ><span class="toman"> تومان</span>
                       </div>
@@ -97,8 +104,12 @@
                   </div>
                   <div class="cart-product-price green">
                     <div class="original">
-                      <span class="font-number">{{ getProductTotalPrice(product.id) | async | number }}</span
-                      ><span class="toman d-flex align-items-center"> تومان</span>
+                      <span class="font-number">{{
+                        getProductTotalPrice(product.id) | async | number
+                      }}</span
+                      ><span class="toman d-flex align-items-center">
+                        تومان</span
+                      >
                     </div>
                   </div>
                 </div>

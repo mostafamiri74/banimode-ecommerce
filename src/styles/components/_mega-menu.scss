@@ -1420,7 +1420,7 @@ ul.ruby-menu > li.ruby-menu-mega > div,
 ul.ruby-menu > li.ruby-menu-mega-blog > div,
 ul.ruby-menu > li.ruby-menu-mega-shop > div {
   position: absolute;
-  width: 980px;
+  width: 1210px;
   height: auto;
   top: 38px;
   right: 0;
@@ -2827,6 +2827,7 @@ span.ruby-c-content {
   &-content {
     display: inline-flex !important;
     height: 100% !important;
+    width: 1000px !important;
     padding: 16px 16px 16px 0 !important;
     &__list {
       display: flex;
@@ -2842,7 +2843,7 @@ span.ruby-c-content {
   display: inline-flex !important;
   flex-direction: column !important;
   height: 100% !important;
-  width: 600px;
+  width: 780px;
 }
 
 .sub-category-content__left {

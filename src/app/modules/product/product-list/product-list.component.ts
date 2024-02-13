@@ -28,7 +28,6 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private formBuilder: FormBuilder,
     private store: Store<ShopState>,
     private router: Router,
     private route: ActivatedRoute
@@ -82,8 +81,7 @@ export class ProductListComponent implements OnInit {
     const endIndex = startIndex + this.itemsPerPage;
 
     this.productListPerPage$ = this.allProduct$.pipe(
-      map((productList) => productList.slice(startIndex, endIndex)),tap(x => console.log(x)
-      )
+      map((productList) => productList.slice(startIndex, endIndex))
     );
   }
 }

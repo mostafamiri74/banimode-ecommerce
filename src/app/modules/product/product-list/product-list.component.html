@@ -5,7 +5,7 @@
         <div class="my-4">
           <h3>ساعت</h3>
         </div>
-        
+
         <div class="search-box position-relative">
           <input
             type="search"
@@ -36,7 +36,6 @@
       <div class="col-md-9 col-12">
         <app-pagination
           [index]="currentPage"
-          [totalCount]="(allProduct$ | async)!.length"
           (page)="pageEvent($event)"
         ></app-pagination>
         <div class="product-list-box">
@@ -103,10 +102,10 @@
                 <div
                   class="product-list__product-size d-flex justify-conten-center align-items-center"
                 >
-                  <a > SM </a>
-                  <a > M </a>
-                  <a > L </a>
-                  <a class="font-number" > 1 + </a>
+                  <a> SM </a>
+                  <a> M </a>
+                  <a> L </a>
+                  <a class="font-number"> 1 + </a>
                 </div>
               </div>
             </ng-container>
@@ -118,7 +117,6 @@
         </div>
         <app-pagination
           [index]="currentPage"
-          [totalCount]="(allProduct$ | async)!.length"
           (page)="pageEvent($event)"
         ></app-pagination>
       </div>

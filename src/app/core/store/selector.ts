@@ -40,13 +40,11 @@ export const selectCartTotalPrice = createSelector(
   (cartItems, products) => {
     return cartItems.reduce((total, cartItem) => {
       const product = products.find((p) => p.id === cartItem.id);
-      console.log(cartItems);
-      console.log(products);
 
       if (product) {
         return (
           total +
-          (product.product_specific_price!.specific_price ||
+          (product!.product_specific_price!.specific_price ||
             product.product_price) *
             cartItem.quantity
         );
