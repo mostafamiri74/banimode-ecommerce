@@ -6,8 +6,8 @@
   >
     <mat-checkbox
       *ngFor="let brand of brands"
-      [(ngModel)]="selectedBrands[brand]"
-      (change)="applyFilters()"
+      [checked]="isSelected(brand)"
+      (change)="applyFilters(brand)"
       labelPosition="before"
     >
       {{ brand }}

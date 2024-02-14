@@ -10,14 +10,14 @@ export class BrandsFilterComponent {
   @Output() brandSelected = new EventEmitter<string[]>();
 
   brands: string[] = [
-    'جوتی جینز',
-    'فریولی',
-    'ال سی من',
-    'ایندیگو',
-    'آر ان اس',
-    'پیرکاردین',
+    'Jotijeans',
+    'Friuli',
+    'LCman',
+    'indigo',
+    'RNS',
+    'PierCardin',
   ];
-  selectedBrands: { [key: string]: boolean } = {};
+  selectedBrands: string[] = [];
   isReadMore = true;
 
   constructor(private productService: ProductService) {}
@@ -26,23 +26,18 @@ export class BrandsFilterComponent {
     this.isReadMore = !this.isReadMore;
   }
 
-  applyFilters(): void {
-    const selectedBrandKeys = Object.keys(this.selectedBrands).filter(
-      (key: string) => this.selectedBrands[key]
-    );
-    const queryParams: { [key: string]: string } = {};
+  isSelected(brand: string): boolean {
+    return this.selectedBrands.includes(brand);
+  }
 
-    if (selectedBrandKeys.length > 0) {
-      queryParams['brand'] = selectedBrandKeys.join(',');
+  applyFilters(brand: string): void {
+    const index = this.selectedBrands.indexOf(brand);
+    if (index === -1) {
+      this.selectedBrands.push(brand);
+    } else {
+      this.selectedBrands.splice(index, 1);
     }
 
-    this.productService.getFilteredProducts(queryParams).subscribe({
-      next: (data) => {
-        // this.filteredProductsEvent.emit(filteredProducts);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    this.brandSelected.emit(this.selectedBrands);
   }
 }
