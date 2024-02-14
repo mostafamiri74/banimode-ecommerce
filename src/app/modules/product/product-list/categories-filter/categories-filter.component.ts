@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-categories-filter',
@@ -21,7 +20,7 @@ export class CategoriesFilterComponent {
 
   isReadMore = true;
 
-  constructor(private productService: ProductService) {}
+  constructor() {}
 
   showMore() {
     this.isReadMore = !this.isReadMore;
@@ -35,14 +34,5 @@ export class CategoriesFilterComponent {
     if (selectedCategoryKeys.length > 0) {
       queryParams['category'] = selectedCategoryKeys.join(',');
     }
-
-    this.productService.getFilteredProducts(queryParams).subscribe({
-      next: (data) => {
-        // this.filteredProductsEvent.emit(filteredProducts);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
   }
 }

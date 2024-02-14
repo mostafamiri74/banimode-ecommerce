@@ -24,24 +24,11 @@ export class ProductService {
     });
   }
 
-  public getProductDetails(id: number): Observable<any> {    
-      return this.http.get<any>('/assets/mock-data/product_list.json')
-        .pipe(map(products => products.find((product:any) => product.id === id)));
-  }
-
-  getFilteredProducts(params: {
-    [key: string]: string | number;
-  }): Observable<any> {
-    console.log(this.queryParams);
-
-    for (const key in params) {
-      if (params.hasOwnProperty(key)) {
-        this.queryParams = this.queryParams.set(key, params[key]);
-      }
-    }
-
-    return this.http.get('/assets/mock-data/product_list.json', {
-      params: this.queryParams,
-    });
+  public getProductDetails(id: number): Observable<any> {
+    return this.http
+      .get<any>('/assets/mock-data/product_list.json')
+      .pipe(
+        map((products) => products.find((product: any) => product.id === id))
+      );
   }
 }

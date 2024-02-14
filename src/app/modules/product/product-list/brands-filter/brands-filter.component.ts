@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-brands-filter',
@@ -20,7 +19,7 @@ export class BrandsFilterComponent {
   selectedBrands: string[] = [];
   isReadMore = true;
 
-  constructor(private productService: ProductService) {}
+  constructor() {}
 
   showMore() {
     this.isReadMore = !this.isReadMore;
