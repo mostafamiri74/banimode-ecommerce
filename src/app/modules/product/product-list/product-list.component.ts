@@ -23,8 +23,11 @@ export class ProductListComponent implements OnInit {
 
   allProduct$: Observable<any[]> = of([]);
   productListPerPage$: Observable<any[]> = of([]);
+  filteredProducts$: Observable<any[]> = of([]);
 
-  items: any[] = [];
+  selectedCategory!: string;
+  selectedPriceRange!: { min: number; max: number };
+  selectedBrands: string[] = [];
 
   constructor(
     private productService: ProductService,
@@ -50,12 +53,46 @@ export class ProductListComponent implements OnInit {
 
   private getProductlist() {
     this.allProduct$ = this.productService.getProductList(this.queryParams);
+
+    this.filteredProducts$ = this.allProduct$;
   }
 
-  sendFiltersToServer(formValue: any) {
-    // Code to send formValue to the server as query params
-    // Replace this with your HTTP request to the server
-    console.log(formValue);
+  sendFiltersToServer(brands: any) {
+    this.selectedBrands = brands;
+
+    this.filteredProducts$ = this.allProduct$.pipe(
+      map((products) => {
+        let filteredProducts = [...products];
+
+        // if (this.selectedCategory) {
+        //   filteredProducts = filteredProducts.filter(
+        //     (product) => product.category === this.selectedCategory
+        //   );
+        // }
+
+        // if (this.selectedPriceRange) {
+        //   filteredProducts = filteredProducts.filter(
+        //     (product) =>
+        //       product.price >= this.selectedPriceRange.min &&
+        //       product.price <= this.selectedPriceRange.max
+        //   );
+        // }
+
+        if (this.selectedBrands.length > 0) {
+          filteredProducts = filteredProducts.filter((product) =>
+            this.selectedBrands.includes(product.brand)
+          );
+        }
+
+        return filteredProducts;
+      })
+    );
+
+    this.filteredProducts$.subscribe((filteredProducts) => {
+      console.log('this subscription', filteredProducts);
+    });
+
+    this.getPaginatedProducts();
   }
 
   pageEvent(pageNumber: any): void {
@@ -80,8 +117,8 @@ export class ProductListComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
 
-    this.productListPerPage$ = this.allProduct$.pipe(
-      map((productList) => productList.slice(startIndex, endIndex))
+    this.productListPerPage$ = this.filteredProducts$.pipe(
+      map((products) => products.slice(startIndex, endIndex))
     );
   }
 }

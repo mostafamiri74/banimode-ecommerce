@@ -29,7 +29,9 @@
 
         <div>
           <app-categories-filter></app-categories-filter>
-          <app-brands-filter></app-brands-filter>
+          <app-brands-filter
+            (brandSelected)="sendFiltersToServer($event)"
+          ></app-brands-filter>
           <app-prices-filter></app-prices-filter>
         </div>
       </div>
