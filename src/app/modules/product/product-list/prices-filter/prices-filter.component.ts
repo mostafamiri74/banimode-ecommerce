@@ -15,7 +15,7 @@ export class PricesFilterComponent {
   maxValue = 2000000;
   stepValue = 10;
 
-  minPrice!: number;
+  minPrice: number = 0;
   maxPrice!: number;
 
   constructor() {}
