@@ -171,7 +171,7 @@
       "icon_color": "#FFFFFF"
     },
     "product_manufacturer_en_name": "Corum",
-    "product_price": 2089000,
+    "product_price": 209000,
     "product_reference": "AM-CRM-2210113",
     "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113"
   },
@@ -246,7 +246,7 @@
     "product_price": 1380000,
     "product_reference": "AM-HUG-10347",
     "product_name": "پیراهن آستین کوتاه مردانه هوگرو Hugero کد 10347",
-    "specific_price": 1104000
+    "specific_price": 804000
   },
   {
     "id": 99318,
@@ -276,7 +276,7 @@
     "product_price": 2299000,
     "product_reference": "22533049",
     "product_name": "پیراهن مردانه جوتی جینز JootiJeans کد 22533049",
-    "specific_price": 1899000
+    "specific_price": 905000
   },
   {
     "id": 101800,
@@ -297,10 +297,10 @@
     ],
     "promotion_label": null,
     "product_manufacturer_en_name": "Hugero Men",
-    "product_price": 1680000,
+    "product_price": 89000,
     "product_reference": "AM-HUG-10267",
     "product_name": "پیراهن مردانه هوگرو Hugero کد 10267",
-    "specific_price": 1176000
+    "specific_price": 50000
   },
   {
     "id": 103022,
@@ -408,10 +408,10 @@
       "icon_color": "#FFFFFF"
     },
     "product_manufacturer_en_name": "JootiJeans",
-    "product_price": 2499000,
+    "product_price": 95000,
     "product_reference": "23531065",
     "product_name": "پیراهن مردانه جوتی جینز JootiJeans کد 23531065",
-    "specific_price": 2299000
+    "specific_price": 85000
   },
   {
     "id": 103596,
@@ -1945,7 +1945,7 @@
     "product_price": 1880000,
     "product_reference": "LC-02181336",
     "product_name": "ست پیراهن و پوشت ال سی من Lc Man کد 02181336",
-    "specific_price": 1598000
+    "specific_price": 159000
   },
   {
     "id": 96880,
@@ -1972,7 +1972,7 @@
       "icon_color": "#FFFFFF"
     },
     "product_manufacturer_en_name": "Balloon",
-    "product_price": 1299000,
+    "product_price": 12000,
     "product_reference": "AM-NEWBAL-5571",
     "product_name": "پیراهن مردانه بالون Balloon کد 5571",
     "specific_price": 806000
@@ -1996,7 +1996,7 @@
       "icon_color": "#FFFFFF"
     },
     "product_manufacturer_en_name": "Feriolli",
-    "product_price": 1380000,
+    "product_price": 13000,
     "product_reference": "AM-FER-11069",
     "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069"
   }

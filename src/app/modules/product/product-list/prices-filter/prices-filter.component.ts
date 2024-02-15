@@ -6,19 +6,29 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./prices-filter.component.scss'],
 })
 export class PricesFilterComponent {
-  minPrice = 0;
-  maxPrice = 1000;
+  @Output() priceRangeSelected = new EventEmitter<{
+    minPrice: number;
+    maxPrice: number;
+  }>();
+
+  minValue = 0;
+  maxValue = 2000000;
   stepValue = 10;
 
-  minValue: number = this.minPrice;
-  maxValue: number = this.maxPrice;
+  minPrice!: number;
+  maxPrice!: number;
 
   constructor() {}
 
   applyFilters(): void {
-    const queryParams: { [key: string]: number } = {
-      minPrice: this.minValue,
-      maxPrice: this.maxValue,
-    };
+    this.priceRangeSelected.emit({
+      minPrice: this.minPrice,
+      maxPrice: this.maxPrice,
+    });
+
+    // const queryParams: { [key: string]: number } = {
+    //   minPrice: this.minPrice,
+    //   maxPrice: this.maxPrice,
+    // };
   }
 }

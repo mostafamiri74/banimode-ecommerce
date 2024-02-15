@@ -1,19 +1,19 @@
 <div class="py-3 font-number">
   <span class="price-title">قیمت :</span>
   <div class="d-flex flex-column price-container">
-    <mat-slider [min]="minPrice" [max]="maxPrice" discrete>
-      <input [(ngModel)]="minValue" matSliderStartThumb />
-      <input [(ngModel)]="maxValue" matSliderEndThumb />
+    <mat-slider [min]="minValue" [max]="maxValue" discrete>
+      <input [(ngModel)]="minPrice" matSliderStartThumb />
+      <input [(ngModel)]="maxPrice" matSliderEndThumb />
     </mat-slider>
 
     <section class="mt-4 text-center">
       <mat-form-field class="w-100">
         <mat-label>از</mat-label>
-        <input matInput type="number" [(ngModel)]="minValue" />
+        <input matInput type="number" [(ngModel)]="minPrice" />
       </mat-form-field>
       <mat-form-field class="w-100">
         <mat-label>تا</mat-label>
-        <input matInput type="number" [(ngModel)]="maxValue" />
+        <input matInput type="number" [(ngModel)]="maxPrice" />
       </mat-form-field>
 
       <button
