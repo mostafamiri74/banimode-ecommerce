@@ -9,10 +9,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: ProductListComponent,
   },
-  // {
-  //   path: 'product-list',s
-  //   component: ProductListComponent,
-  // },
   {
     path: ':id',
     component: ProductDetailsComponent,

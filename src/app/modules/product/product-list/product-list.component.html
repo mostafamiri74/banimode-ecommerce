@@ -28,11 +28,13 @@
         </div>
 
         <div>
-          <app-categories-filter></app-categories-filter>
           <app-brands-filter
-            (brandSelected)="sendFiltersToServer($event)"
+            (brandSelected)="filterByBrands($event)"
           ></app-brands-filter>
-          <app-prices-filter></app-prices-filter>
+
+          <app-prices-filter
+            (priceRangeSelected)="filterByPriceRange($event)"
+          ></app-prices-filter>
         </div>
       </div>
       <div class="col-md-9 col-12">

@@ -25,8 +25,7 @@ export class ProductListComponent implements OnInit {
   productListPerPage$: Observable<any[]> = of([]);
   filteredProducts$: Observable<any[]> = of([]);
 
-  selectedCategory!: string;
-  selectedPriceRange!: { min: number; max: number };
+  selectedPriceRange!: { minPrice: number; maxPrice: number };
   selectedBrands: string[] = [];
 
   constructor(
@@ -57,26 +56,28 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts$ = this.allProduct$;
   }
 
-  sendFiltersToServer(brands: any) {
+  filterByBrands(brands: string[]) {
     this.selectedBrands = brands;
+    this.applyFilters();
+  }
 
+  filterByPriceRange(priceRange: { minPrice: number; maxPrice: number }) {
+    this.selectedPriceRange = priceRange;
+    this.applyFilters();
+  }
+
+  applyFilters() {
     this.filteredProducts$ = this.allProduct$.pipe(
       map((products) => {
         let filteredProducts = [...products];
 
-        // if (this.selectedCategory) {
-        //   filteredProducts = filteredProducts.filter(
-        //     (product) => product.category === this.selectedCategory
-        //   );
-        // }
-
-        // if (this.selectedPriceRange) {
-        //   filteredProducts = filteredProducts.filter(
-        //     (product) =>
-        //       product.price >= this.selectedPriceRange.min &&
-        //       product.price <= this.selectedPriceRange.max
-        //   );
-        // }
+        if (this.selectedPriceRange) {
+          filteredProducts = filteredProducts.filter(
+            (product) =>
+              product.product_price >= this.selectedPriceRange.minPrice &&
+              product.product_price <= this.selectedPriceRange.maxPrice
+          );
+        }
 
         if (this.selectedBrands.length > 0) {
           filteredProducts = filteredProducts.filter((product) =>
@@ -87,10 +88,6 @@ export class ProductListComponent implements OnInit {
         return filteredProducts;
       })
     );
-
-    this.filteredProducts$.subscribe((filteredProducts) => {
-      console.log('this subscription', filteredProducts);
-    });
 
     this.getPaginatedProducts();
   }
@@ -103,7 +100,6 @@ export class ProductListComponent implements OnInit {
   }
 
   onPageChange(pageNumber: number): void {
-    // Update query parameters and trigger data fetch
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { page: pageNumber },
