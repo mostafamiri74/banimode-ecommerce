@@ -11,8 +11,8 @@ export class BrandsFilterComponent {
   brands: string[] = [
     'Jotijeans',
     'Friuli',
-    'LCman',
-    'indigo',
+    'Lcman',
+    'Indigo',
     'RNS',
     'PierCardin',
   ];

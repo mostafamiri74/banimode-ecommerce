@@ -19,14 +19,6 @@
             <i class="fa-solid fa-search"></i>
           </button>
         </div>
-
-        <div
-          class="d-flex flex-row justify-content-between align-content-center py-4"
-        >
-          <h6 class="m-0">فیلتر های اعمال شده :</h6>
-          <button class="remove-filters">حذف فیلترها</button>
-        </div>
-
         <div>
           <app-brands-filter
             (brandSelected)="filterByBrands($event)"
@@ -40,6 +32,7 @@
       <div class="col-md-9 col-12">
         <app-pagination
           [index]="currentPage"
+          [totalCount]="totalCount"
           (page)="pageEvent($event)"
         ></app-pagination>
         <div class="product-list-box">
@@ -121,6 +114,7 @@
         </div>
         <app-pagination
           [index]="currentPage"
+          [totalCount]="totalCount"
           (page)="pageEvent($event)"
         ></app-pagination>
       </div>
