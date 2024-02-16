@@ -18,8 +18,9 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   public queryParams = new HttpParams();
 
-  currentPage = 1;
-  itemsPerPage = 9;
+  currentPage: number = 1;
+  itemsPerPage: number = 9;
+  totalCount: number = 0;
 
   allProduct$: Observable<any[]> = of([]);
   productListPerPage$: Observable<any[]> = of([]);
@@ -47,13 +48,14 @@ export class ProductListComponent implements OnInit {
     this.queryParams = this.queryParams.set('page', this.currentPage);
 
     this.getProductlist();
-    this.getPaginatedProducts();
   }
 
   private getProductlist() {
     this.allProduct$ = this.productService.getProductList(this.queryParams);
 
     this.filteredProducts$ = this.allProduct$;
+
+    this.applyFilters();
   }
 
   filterByBrands(brands: string[]) {
@@ -84,6 +86,8 @@ export class ProductListComponent implements OnInit {
             this.selectedBrands.includes(product.brand)
           );
         }
+
+        this.totalCount = filteredProducts.length;
 
         return filteredProducts;
       })
