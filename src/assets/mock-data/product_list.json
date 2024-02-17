@@ -6,13 +6,7 @@
     "brand": "Jotijeans",
     "large_default": [
       "https://www.banimode.com/1119938-large_default/104646.jpg",
-      "https://www.banimode.com/1119940-large_default/104646.jpg",
-      "https://www.banimode.com/1119952-large_default/104646.jpg",
-      "https://www.banimode.com/1119942-large_default/104646.jpg",
-      "https://www.banimode.com/1119944-large_default/104646.jpg",
-      "https://www.banimode.com/1119946-large_default/104646.jpg",
-      "https://www.banimode.com/1119948-large_default/104646.jpg",
-      "https://www.banimode.com/1119950-large_default/104646.jpg"
+      "https://www.banimode.com/1119940-large_default/104646.jpg"
     ],
     "promotion_label": {
       "title": "خرید 2 کالا + 1 هدیه",
@@ -24,7 +18,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 2689000,
     "product_reference": "AM-CRM-2310104",
-    "product_name": "پیراهن مردانه کروم Corum کد 2310104"
+    "product_name": "پیراهن مردانه کروم Corum کد 2310104",
+    "specific_price": 300000
   },
   {
     "id": 91064,
@@ -91,7 +86,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104468,
@@ -173,7 +169,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 209000,
     "product_reference": "AM-CRM-2210113",
-    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113"
+    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113",
+    "specific_price": 73000
   },
   {
     "id": 103056,
@@ -196,7 +193,8 @@
     "product_manufacturer_en_name": "LC Waikiki",
     "product_price": 869000,
     "product_reference": "AM-LCW-S366757Z8",
-    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8"
+    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8",
+    "specific_price": 50000
   },
   {
     "id": 103596,
@@ -350,7 +348,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104200,
@@ -664,7 +663,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1380000,
     "product_reference": "AM-FER-11069",
-    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069"
+    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069",
+    "specific_price": 50000
   },
   {
     "id": 104646,
@@ -691,7 +691,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 2689000,
     "product_reference": "AM-CRM-2310104",
-    "product_name": "پیراهن مردانه کروم Corum کد 2310104"
+    "product_name": "پیراهن مردانه کروم Corum کد 2310104",
+    "specific_price": 50000
   },
   {
     "id": 91064,
@@ -758,7 +759,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104468,
@@ -840,7 +842,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 2089000,
     "product_reference": "AM-CRM-2210113",
-    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113"
+    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113",
+    "specific_price": 50000
   },
   {
     "id": 103056,
@@ -863,7 +866,8 @@
     "product_manufacturer_en_name": "LC Waikiki",
     "product_price": 869000,
     "product_reference": "AM-LCW-S366757Z8",
-    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8"
+    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8",
+    "specific_price": 50000
   },
   {
     "id": 103596,
@@ -1017,7 +1021,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104200,
@@ -1331,7 +1336,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1380000,
     "product_reference": "AM-FER-11069",
-    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069"
+    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069",
+    "specific_price": 50000
   },
   {
     "id": 104646,
@@ -1358,7 +1364,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 2689000,
     "product_reference": "AM-CRM-2310104",
-    "product_name": "پیراهن مردانه کروم Corum کد 2310104"
+    "product_name": "پیراهن مردانه کروم Corum کد 2310104",
+    "specific_price": 50000
   },
   {
     "id": 91064,
@@ -1425,7 +1432,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104468,
@@ -1507,7 +1515,8 @@
     "product_manufacturer_en_name": "Corum",
     "product_price": 2089000,
     "product_reference": "AM-CRM-2210113",
-    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113"
+    "product_name": "پیراهن طرح دار مردانه کروم Corum کد 2210113",
+    "specific_price": 50000
   },
   {
     "id": 103056,
@@ -1530,7 +1539,8 @@
     "product_manufacturer_en_name": "LC Waikiki",
     "product_price": 869000,
     "product_reference": "AM-LCW-S366757Z8",
-    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8"
+    "product_name": "پیراهن مردانه ال سی وایکیکی LC Waikiki کد S366757Z8",
+    "specific_price": 50000
   },
   {
     "id": 103596,
@@ -1684,7 +1694,8 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 1390000,
     "product_reference": "AM-FER-11075",
-    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075"
+    "product_name": "پیراهن مردانه فریولی Feriolli کد 11075",
+    "specific_price": 50000
   },
   {
     "id": 104200,
@@ -1998,6 +2009,7 @@
     "product_manufacturer_en_name": "Feriolli",
     "product_price": 13000,
     "product_reference": "AM-FER-11069",
-    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069"
+    "product_name": "پیراهن راه راه مردانه فریولی Feriolli کد 11069",
+    "specific_price": 50000
   }
 ]

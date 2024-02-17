@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 import { AddToCart } from 'src/app/core/store/actions';
 import { ShopState } from 'src/app/core/store/reducer';
 import { GalleryItem, ImageItem, Gallery } from 'ng-gallery';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
 
@@ -18,7 +18,6 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
-  
   id!: any;
 
   product$ = new Observable<any>();
@@ -65,7 +64,7 @@ export class ProductDetailsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.id = Number(this.route.snapshot.paramMap.get('id')) ;
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.getProductDetails();
     this.getTotalComments();

@@ -28,8 +28,7 @@ export const selectProductTotalPrice = createSelector(
     const product = products.find((p) => p.id == props.id);
 
     return (
-      (product!.product_specific_price.specific_price ||
-        product.product_price) * product.quantity
+      (product!.specific_price || product.product_price) * product.quantity
     );
   }
 );
@@ -44,9 +43,7 @@ export const selectCartTotalPrice = createSelector(
       if (product) {
         return (
           total +
-          (product!.product_specific_price!.specific_price ||
-            product.product_price) *
-            cartItem.quantity
+          (product!.specific_price || product.product_price) * cartItem.quantity
         );
       }
       return total;
