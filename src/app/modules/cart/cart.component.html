@@ -68,15 +68,16 @@
                     <div class="discount">
                       <div class="discount-value">
                         <span class="font-number">{{
-                          (product!.discount_percent | number) + " %"
+                          (product!.discount_percent | number) || 0 + " %"
                         }}</span
                         ><span class="mx-2">تخفیف </span>
                       </div>
                       <div class="discount-price">
                         <span class="font-number">{{
-                          product!.specific_price | number
-                        }}</span
-                        ><span class="toman"> تومان</span>
+                          product!.specific_price || product!.product_price
+                            | number
+                        }}</span>
+                        <span class="toman"> تومان</span>
                       </div>
                     </div>
                   </div>
