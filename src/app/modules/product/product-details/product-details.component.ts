@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { CartService } from 'src/app/core/services/cart.service';
 import { CommentService } from 'src/app/core/services/comment.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { AddToCart } from 'src/app/core/store/actions';
@@ -56,7 +55,6 @@ export class ProductDetailsComponent {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService,
     private commentService: CommentService,
     private store: Store<ShopState>,
     public gallery: Gallery,

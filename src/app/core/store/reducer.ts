@@ -23,30 +23,34 @@ export const shopReducer = createReducer(
   initialState,
 
   on(AddToCart, (state, { product }) => {
-    // product.id = 1;
     let productCopy = { ...product, quantity: 1 };
     return {
       ...state,
       cart: [...state.cart, productCopy],
     };
   }),
+
   on(RemoveFromCart, (state, { id }) => ({
     ...state,
     cart: state.cart.filter((product) => product.id !== id),
   })),
+
   on(GetItems, (state) => ({
     ...state,
   })),
+
   on(LoadSuccess, (state, { product }) => ({
     ...state,
     products: [...product],
   })),
+
   on(increaseQuantity, (state, { product }) => {
     const updatedProducts = state.cart.map((p) =>
       p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
     );
     return { ...state, cart: updatedProducts };
   }),
+
   on(decreaseQuantity, (state, { product }) => {
     const updatedProducts = state.cart.map((p) =>
       p.id === product.id ? { ...p, quantity: Math.max(0, p.quantity - 1) } : p

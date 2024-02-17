@@ -34,6 +34,7 @@ export const increaseQuantity = createAction(
   ActionTypes.increaseQuantity,
   props<{ product: any }>()
 );
+
 export const decreaseQuantity = createAction(
   ActionTypes.decreaseQuantity,
   props<{ product: any }>()
