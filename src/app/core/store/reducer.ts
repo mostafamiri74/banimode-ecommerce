@@ -11,7 +11,7 @@ import { IProduct } from '../models/product.interface';
 
 export interface ShopState {
   products: IProduct[];
-  cart: any[];
+  cart: IProduct[];
 }
 
 export const initialState: ShopState = {

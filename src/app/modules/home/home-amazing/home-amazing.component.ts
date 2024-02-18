@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IAmazingProduct } from 'src/app/core/models/product.interface';
 import { ProductService } from 'src/app/core/services/product.service';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
@@ -13,7 +14,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeAmazingComponent {
-  productList$ = new Observable<any>();
+  productList$ = new Observable<IAmazingProduct[]>();
 
   constructor(private productService: ProductService) {}
 
@@ -21,7 +22,7 @@ export class HomeAmazingComponent {
     this.getProducts();
   }
 
-  private getProducts() {
+  private getProducts(): void {
     this.productList$ = this.productService.getAmazingProduct();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { CommentService } from 'src/app/core/services/comment.service';
@@ -10,6 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
 import { selectExistInCart } from 'src/app/core/store/selector';
+import {
+  IBestSillingProduct,
+  IProduct,
+} from 'src/app/core/models/product.interface';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 @Component({
@@ -18,20 +22,18 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
-  id!: any;
+  product$ = new Observable<IProduct>();
+  public product!: IProduct;
+  similarProduct$ = new Observable<IBestSillingProduct[]>();
 
-  product$ = new Observable<any>();
-  public product!: any;
-
-  similarProduct$ = new Observable<any>();
-
-  inCart = false;
+  id!: number;
+  inCart: boolean = false;
 
   totalComments: number = 0;
   displayedComments: string[] = [];
-  commentsPerLoad = 5;
-  currentIndex = 0;
-  disableLoadMoreButton = false;
+  commentsPerLoad: number = 5;
+  currentIndex: number = 0;
+  disableLoadMoreButton: boolean = false;
 
   thumbs: any;
   items: GalleryItem[] = [];
@@ -64,22 +66,23 @@ export class ProductDetailsComponent {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+
     this.store
       .pipe(select(selectExistInCart, { id: this.id }))
-      .subscribe((x) => (this.inCart = x));
+      .subscribe((isExist: boolean) => (this.inCart = isExist));
 
     this.getProductDetails();
-    this.getTotalComments();
     this.getSimilarProducts();
+    this.getTotalComments();
 
     this.items = this.data.map(
       (item) => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl })
     );
   }
 
-  private getProductDetails() {
+  private getProductDetails(): void {
     this.productService.getProductDetails(this.id).subscribe({
-      next: (productDetails) => {
+      next: (productDetails: IProduct) => {
         this.product$ = of(productDetails);
         this.product = productDetails;
       },
@@ -89,26 +92,19 @@ export class ProductDetailsComponent {
     });
   }
 
-  private getSimilarProducts() {
-    this.productService.getBestSillingProduct().subscribe({
-      next: (product) => {
-        this.similarProduct$ = of(product);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  private getSimilarProducts(): void {
+    this.similarProduct$ = this.productService.getBestSillingProduct();
   }
 
-  public addToCart() {
+  public addToCart(): void {
     this.store.dispatch(AddToCart({ product: this.product }));
 
     this.inCart = true;
   }
 
-  private getTotalComments() {
+  private getTotalComments(): void {
     this.commentService.getTotalComments().subscribe({
-      next: (total) => {
+      next: (total: number) => {
         this.totalComments = total;
 
         this.loadMoreComments();
@@ -119,7 +115,7 @@ export class ProductDetailsComponent {
     });
   }
 
-  public loadMoreComments() {
+  public loadMoreComments(): void {
     this.commentService
       .getComments(this.currentIndex, this.commentsPerLoad)
       .subscribe({

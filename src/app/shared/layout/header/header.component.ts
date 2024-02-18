@@ -1,8 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { debounceTime, fromEvent, map, switchMap } from 'rxjs';
+import { IProduct } from 'src/app/core/models/product.interface';
 import { ProductService } from 'src/app/core/services/product.service';
-import { selectShoppingCart } from 'src/app/core/store/selector';
+import {
+  selectCartLength,
+  selectShoppingCart,
+} from 'src/app/core/store/selector';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +14,11 @@ import { selectShoppingCart } from 'src/app/core/store/selector';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  filterProduct!: any[];
-  cart: any[] = [];
+  cartLength: number = 0;
 
-  constructor(
-    private productService: ProductService,
-    private store: Store<{ items: []; cart: [] }>
-  ) {
-    this.store.pipe(select(selectShoppingCart)).subscribe({
-      next: (data) => {
-        this.cart = data;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  constructor(private store: Store<{ items: []; cart: [] }>) {
+    this.store
+      .pipe(select(selectCartLength))
+      .subscribe((cartLength: number) => (this.cartLength = cartLength));
   }
 }

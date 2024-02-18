@@ -12,7 +12,7 @@ export enum ActionTypes {
 
 export const AddToCart = createAction(
   ActionTypes.Add,
-  props<{ product: any }>()
+  props<{ product: IProduct }>()
 );
 
 export const RemoveFromCart = createAction(
@@ -22,20 +22,20 @@ export const RemoveFromCart = createAction(
 
 export const GetItems = createAction(
   ActionTypes.GetItems,
-  props<{ product: any[] }>()
+  props<{ product: IProduct[] }>()
 );
 
 export const LoadSuccess = createAction(
   ActionTypes.LoadSuccess,
-  props<{ product: any[] }>()
+  props<{ product: IProduct[] }>()
 );
 
 export const increaseQuantity = createAction(
   ActionTypes.increaseQuantity,
-  props<{ product: any }>()
+  props<{ product: IProduct }>()
 );
 
 export const decreaseQuantity = createAction(
   ActionTypes.decreaseQuantity,
-  props<{ product: any }>()
+  props<{ product: IProduct }>()
 );

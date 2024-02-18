@@ -22,9 +22,9 @@ export class ProductListComponent implements OnInit {
   itemsPerPage: number = 9;
   totalCount: number = 0;
 
-  allProduct$: Observable<any[]> = of([]);
-  productListPerPage$: Observable<any[]> = of([]);
-  filteredProducts$: Observable<any[]> = of([]);
+  allProduct$: Observable<IProduct[]> = of([]);
+  productListPerPage$: Observable<IProduct[]> = of([]);
+  filteredProducts$: Observable<IProduct[]> = of([]);
 
   selectedPriceRange!: { minPrice: number; maxPrice: number };
   selectedBrands: string[] = [];
@@ -40,7 +40,7 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
-  loadProducts() {
+  private loadProducts(): void {
     this.store.dispatch({ type: ActionTypes.GetItems });
   }
 
@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
     this.getProductlist();
   }
 
-  private getProductlist() {
+  private getProductlist(): void {
     this.allProduct$ = this.productService.getProductList(this.queryParams);
 
     this.filteredProducts$ = this.allProduct$;
@@ -58,17 +58,20 @@ export class ProductListComponent implements OnInit {
     this.applyFilters();
   }
 
-  filterByBrands(brands: string[]) {
+  public filterByBrands(brands: string[]): void {
     this.selectedBrands = brands;
     this.applyFilters();
   }
 
-  filterByPriceRange(priceRange: { minPrice: number; maxPrice: number }) {
+  public filterByPriceRange(priceRange: {
+    minPrice: number;
+    maxPrice: number;
+  }): void {
     this.selectedPriceRange = priceRange;
     this.applyFilters();
   }
 
-  applyFilters() {
+  private applyFilters(): void {
     this.filteredProducts$ = this.allProduct$.pipe(
       map((products) => {
         let filteredProducts = [...products];
@@ -96,14 +99,14 @@ export class ProductListComponent implements OnInit {
     this.getPaginatedProducts();
   }
 
-  pageEvent(pageNumber: any): void {
+  public pageEvent(pageNumber: number): void {
     this.currentPage = pageNumber;
     this.queryParams = this.queryParams.set('page', this.currentPage);
 
     this.onPageChange(this.currentPage);
   }
 
-  onPageChange(pageNumber: number): void {
+  private onPageChange(pageNumber: number): void {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { page: pageNumber },
@@ -113,7 +116,7 @@ export class ProductListComponent implements OnInit {
     this.getPaginatedProducts();
   }
 
-  getPaginatedProducts(): void {
+  private getPaginatedProducts(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
 

@@ -44,9 +44,7 @@
             class="object-fit-cover"
           />
           <p class="product-detail-page-specifications__coin-text font-number">
-            با خرید این محصول
-            {{ (product$ | async)?.customer_club_coin }}
-            بانی‌کوین به شما تعلق می‌گیرد.
+            با خرید این محصول ۴ بانی‌کوین به شما تعلق می‌گیرد.
           </p>
         </div>
 
@@ -409,7 +407,7 @@
             <a class="main-page-bestsilling-slider__image">
               <figure class="mb-0">
                 <img
-                  [src]="similarProduct.images.large_default[0]"
+                  [src]="similarProduct.pictures[0]"
                   alt="amazin product"
                   width="275"
                   height="330"
@@ -417,7 +415,7 @@
                   class="object-fit-cover"
                 />
                 <img
-                  [src]="similarProduct.images.large_default[1]"
+                  [src]="similarProduct.pictures[1]"
                   alt="amazin product"
                   width="275"
                   height="330"
@@ -425,9 +423,7 @@
                   class="object-fit-cover main-page-bestsilling-slider__image-hover-show"
                 />
                 <figcaption class="semicircular-badge font-number">
-                  {{
-                    similarProduct.product_specific_price.discount_percent + "%"
-                  }}
+                  {{ similarProduct.discount_percent + "%" }}
                 </figcaption>
               </figure>
               <div class="main-page-bestsilling-slider__quantity-green">
@@ -438,19 +434,19 @@
               </div>
             </a>
             <a class="d-flex justify-content-between mt-3">
-              <h4 class="main-page-bestsilling-slider__brands">JootiJeans</h4>
+              <h4 class="main-page-bestsilling-slider__brands">
+                {{ similarProduct.product_manufacturer_en_name }}
+              </h4>
               <del class="main-page-bestsilling-slider__lastprice font-number">
                 {{ similarProduct.product_price | number }} تومان
               </del>
             </a>
             <a class="d-flex justify-content-between my-3">
               <h4 class="main-page-bestsilling-slider__name">
-                تیشرت طرح دار مردانه جامه
+                {{ similarProduct.product_name }}
               </h4>
               <p class="main-page-bestsilling-slider__price font-number">
-                {{
-                  similarProduct.product_specific_price.specific_price | number
-                }}
+                {{ similarProduct.specific_price | number }}
                 تومان
               </p>
             </a>
@@ -468,4 +464,3 @@
     </div>
   </div>
 </section>
-<!-- ========== End Similar Products Section ========== -->

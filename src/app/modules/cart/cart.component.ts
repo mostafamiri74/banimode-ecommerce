@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { IProduct } from 'src/app/core/models/product.interface';
 import {
   AddToCart,
@@ -20,7 +21,7 @@ import {
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cart: any[] = [];
+  cart: IProduct[] = [];
 
   totalPrice$ = this.store.pipe(select(selectCartTotalPrice));
 
@@ -40,9 +41,9 @@ export class CartComponent implements OnInit {
     });
   }
 
-  getCartItemList() {
+  getCartItemList(): void {
     this.store.pipe(select(selectShoppingCart)).subscribe({
-      next: (product) => {
+      next: (product: IProduct[]) => {
         this.cart = product;
 
         this.updateLocalStorageCart();
@@ -53,30 +54,30 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeFromCart(id: number) {
+  public removeFromCart(id: number): void {
     this.store.dispatch(RemoveFromCart({ id }));
     this.updateLocalStorageCart();
   }
 
-  increaseProductQuantity(product: IProduct) {
+  public increaseProductQuantity(product: IProduct): void {
     this.store.dispatch(increaseQuantity({ product }));
     this.updateLocalStorageCart();
   }
 
-  decreaseProductQuantity(product: IProduct) {
+  public decreaseProductQuantity(product: IProduct): void {
     this.store.dispatch(decreaseQuantity({ product }));
     this.updateLocalStorageCart();
   }
 
-  getProductQuantity(id: any) {
+  public getProductQuantity(id: any): Observable<number> {
     return this.store.pipe(select(selectProductQuantity, { id }));
   }
 
-  getProductTotalPrice(id: number) {
+  public getProductTotalPrice(id: number): Observable<number> {
     return this.store.pipe(select(selectProductTotalPrice, { id }));
   }
 
-  private updateLocalStorageCart() {
+  private updateLocalStorageCart(): void {
     localStorage.setItem('cartItems', JSON.stringify(this.cart));
   }
 

@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ShopState } from './reducer';
+import { IProduct } from '../models/product.interface';
 
 export const selectShopState = createFeatureSelector<ShopState>('product');
 
@@ -15,7 +16,7 @@ export const selectProducts = createSelector(
 
 export const selectProductQuantity = createSelector(
   selectShoppingCart,
-  (products: any[], props: { id: any }) => {
+  (products: IProduct[], props: { id: number }) => {
     const product = products.find((p) => p.id == props.id);
 
     return product ? product.quantity : 0;
@@ -24,7 +25,7 @@ export const selectProductQuantity = createSelector(
 
 export const selectProductTotalPrice = createSelector(
   selectShoppingCart,
-  (products: any[], props: { id: any }) => {
+  (products: any[], props: { id: number }) => {
     const product = products.find((p) => p.id == props.id);
 
     return (
@@ -53,7 +54,14 @@ export const selectCartTotalPrice = createSelector(
 
 export const selectExistInCart = createSelector(
   selectShoppingCart,
-  (products: any[], props: { id: any }) => {
+  (products: IProduct[], props: { id: number }) => {
     return !!products.find((p) => p.id == props.id);
+  }
+);
+
+export const selectCartLength = createSelector(
+  selectShoppingCart,
+  (products: IProduct[]) => {
+    return products.length;
   }
 );

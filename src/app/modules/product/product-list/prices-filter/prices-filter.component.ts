@@ -11,24 +11,19 @@ export class PricesFilterComponent {
     maxPrice: number;
   }>();
 
-  minValue = 0;
-  maxValue = 2000000;
-  stepValue = 10;
+  minValue: number = 0;
+  maxValue: number = 2000000;
+  stepValue: number = 10;
 
   minPrice: number = 0;
   maxPrice!: number;
 
   constructor() {}
 
-  applyFilters(): void {
+  public applyFilters(): void {
     this.priceRangeSelected.emit({
       minPrice: this.minPrice,
       maxPrice: this.maxPrice,
     });
-
-    // const queryParams: { [key: string]: number } = {
-    //   minPrice: this.minPrice,
-    //   maxPrice: this.maxPrice,
-    // };
   }
 }

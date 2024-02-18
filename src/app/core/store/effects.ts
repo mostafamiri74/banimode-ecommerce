@@ -4,6 +4,7 @@ import { EMPTY } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { ActionTypes } from './actions';
 import { ProductService } from '../services/product.service';
+import { IProduct } from '../models/product.interface';
 
 @Injectable()
 export class ShopEffects {
@@ -17,7 +18,7 @@ export class ShopEffects {
       ofType(ActionTypes.GetItems),
       mergeMap(() =>
         this.productService.getProductList().pipe(
-          map((products) => {
+          map((products: IProduct[]) => {
             return { type: ActionTypes.LoadSuccess, product: products };
           }),
           catchError(() => EMPTY)

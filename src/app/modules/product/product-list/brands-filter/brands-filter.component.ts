@@ -21,15 +21,15 @@ export class BrandsFilterComponent {
 
   constructor() {}
 
-  showMore() {
+  public showMore(): void {
     this.isReadMore = !this.isReadMore;
   }
 
-  isSelected(brand: string): boolean {
+  public isSelected(brand: string): boolean {
     return this.selectedBrands.includes(brand);
   }
 
-  applyFilters(brand: string): void {
+  public applyFilters(brand: string): void {
     const index = this.selectedBrands.indexOf(brand);
     if (index === -1) {
       this.selectedBrands.push(brand);
