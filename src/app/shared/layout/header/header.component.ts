@@ -10,7 +10,6 @@ import { selectShoppingCart } from 'src/app/core/store/selector';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @ViewChild('search', { static: true }) search!: ElementRef;
   filterProduct!: any[];
   cart: any[] = [];
 
@@ -26,24 +25,5 @@ export class HeaderComponent {
         console.log(error);
       },
     });
-  }
-
-  ngOnInit(): void {
-    fromEvent(this.search.nativeElement, 'input')
-      .pipe(
-        map((event: any) => event.target.value),
-        debounceTime(1000),
-        switchMap((searchText: string) =>
-          this.productService.getAmazingProduct()
-        )
-      )
-      .subscribe({
-        next: (res) => {
-          this.filterProduct = res;
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
   }
 }
