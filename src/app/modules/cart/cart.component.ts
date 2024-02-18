@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
   constructor(private store: Store<{ items: []; cart: [] }>) {}
 
   ngOnInit(): void {
-    this.loadCartFromLocalStorage();
+    // this.loadCartFromLocalStorage();
 
     this.getCartItemList();
   }
@@ -78,5 +78,15 @@ export class CartComponent implements OnInit {
 
   private updateLocalStorageCart() {
     localStorage.setItem('cartItems', JSON.stringify(this.cart));
+  }
+
+  public onPurchase(): void {
+    this.cart.forEach((product) => {
+      this.store.dispatch(RemoveFromCart({ id: product.id }));
+    });
+
+    this.cart = [];
+
+    alert('خرید شما با موفقیت انجام شد.');
   }
 }

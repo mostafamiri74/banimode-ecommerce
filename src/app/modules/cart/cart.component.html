@@ -6,7 +6,7 @@
           <div class="item name">سبد خرید شما</div>
           <div class="item price">قیمت واحد</div>
           <div class="item quantity">تعداد</div>
-          <div class="item price">قیمت نهایی</div>
+          <div class="item end-price">قیمت نهایی</div>
         </div>
 
         <div class="cart-products">
@@ -120,10 +120,11 @@
             <div class="cart-footer">
               <div class="coupons-box">
                 <button
+                  (click)="onPurchase()"
                   type="button"
                   class="confirm-cart-btn button d-flex justify-content-center align-items-center"
                 >
-                  ثبت و مرحله بعد
+                  ثبت خرید
                 </button>
               </div>
               <div class="cart-summary">
@@ -135,14 +136,14 @@
                 </div>
                 <div class="values">
                   <p>
-                    <span>{{ totalPrice$ | async }}</span
-                    ><span> تومان</span>
+                    <span class="font-number">{{ totalPrice$ | async }}</span
+                    ><span> تومان </span>
                   </p>
                   <p><span>وابسته به نوع ارسال</span></p>
 
                   <p class="green">
-                    <span>{{ totalPrice$ | async }}</span
-                    ><span> تومان</span>
+                    <span class="font-number">{{ totalPrice$ | async }}</span
+                    ><span> تومان </span>
                   </p>
                 </div>
               </div>
