@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { CommentService } from 'src/app/core/services/comment.service';
 import { ProductService } from 'src/app/core/services/product.service';
@@ -9,6 +9,7 @@ import { GalleryItem, ImageItem, Gallery } from 'ng-gallery';
 import { ActivatedRoute } from '@angular/router';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
+import { selectExistInCart } from 'src/app/core/store/selector';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 @Component({
@@ -63,6 +64,9 @@ export class ProductDetailsComponent {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.store
+      .pipe(select(selectExistInCart, { id: this.id }))
+      .subscribe((x) => (this.inCart = x));
 
     this.getProductDetails();
     this.getTotalComments();
