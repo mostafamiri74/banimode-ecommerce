@@ -50,3 +50,10 @@ export const selectCartTotalPrice = createSelector(
     }, 0);
   }
 );
+
+export const selectExistInCart = createSelector(
+  selectShoppingCart,
+  (products: any[], props: { id: any }) => {
+    return !!products.find((p) => p.id == props.id);
+  }
+);
