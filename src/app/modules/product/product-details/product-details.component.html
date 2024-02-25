@@ -3,13 +3,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-6">
-        <div class="basic-container">
-          <gallery
-            id="basic-test"
-            imageSize="cover"
-            fluid
-            [items]="items"
-          ></gallery>
+        <div class="basic-container text-center">
+          <img [src]="product.large_default[0]" alt="" />
         </div>
       </div>
       <div class="col-md-6 col-6">

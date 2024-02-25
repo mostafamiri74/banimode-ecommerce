@@ -5,7 +5,7 @@ import { CommentService } from 'src/app/core/services/comment.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { AddToCart } from 'src/app/core/store/actions';
 import { ShopState } from 'src/app/core/store/reducer';
-import { GalleryItem, ImageItem, Gallery } from 'ng-gallery';
+import { GalleryItem, ImageItem, Gallery, GalleryRef } from 'ng-gallery';
 import { ActivatedRoute } from '@angular/router';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 import SwiperCore from 'swiper';
@@ -16,6 +16,7 @@ import {
 } from 'src/app/core/models/product.interface';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -35,27 +36,6 @@ export class ProductDetailsComponent {
   currentIndex: number = 0;
   disableLoadMoreButton: boolean = false;
 
-  thumbs: any;
-  items: GalleryItem[] = [];
-  data = [
-    {
-      srcUrl: 'https://preview.ibb.co/jrsA6R/img12.jpg',
-      previewUrl: 'https://preview.ibb.co/jrsA6R/img12.jpg',
-    },
-    {
-      srcUrl: 'https://preview.ibb.co/kPE1D6/clouds.jpg',
-      previewUrl: 'https://preview.ibb.co/kPE1D6/clouds.jpg',
-    },
-    {
-      srcUrl: 'https://preview.ibb.co/mwsA6R/img7.jpg',
-      previewUrl: 'https://preview.ibb.co/mwsA6R/img7.jpg',
-    },
-    {
-      srcUrl: 'https://preview.ibb.co/kZGsLm/img8.jpg',
-      previewUrl: 'https://preview.ibb.co/kZGsLm/img8.jpg',
-    },
-  ];
-
   constructor(
     private productService: ProductService,
     private commentService: CommentService,
@@ -74,10 +54,6 @@ export class ProductDetailsComponent {
     this.getProductDetails();
     this.getSimilarProducts();
     this.getTotalComments();
-
-    this.items = this.data.map(
-      (item) => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl })
-    );
   }
 
   private getProductDetails(): void {
@@ -85,6 +61,8 @@ export class ProductDetailsComponent {
       next: (productDetails: IProduct) => {
         this.product$ = of(productDetails);
         this.product = productDetails;
+
+        console.log(productDetails);
       },
       error: (error) => {
         console.log(error);
